@@ -4,10 +4,10 @@ Maintainer: Kubuntu Developers <kubuntu-devel@lists.ubuntu.com>
 XSBC-Original-Maintainer: Rohan Garg <rohangarg@kubuntu.org>
 Build-Depends: cmake,
                debhelper (>= 8.0.0),
-               extra-cmake-modules (>= 1.1.0),
+               extra-cmake-modules (>= 1.2.0),
                libqt5x11extras5-dev,
                pkg-config,
-               pkg-kde-tools,
+               pkg-kde-tools (>= 0.15.15ubuntu1~),
                qtbase5-dev (>= 5.2.0),
                qtbase5-private-dev,
                xauth,
