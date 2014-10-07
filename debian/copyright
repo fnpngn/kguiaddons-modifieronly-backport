@@ -10,7 +10,7 @@ Copyright: 2009 Michael Leupold <lemma@confuego.org>
            2005, 2009 by Albert Astals Cid <aacid@kde.org>
            2013 Aleix Pol Gonzalez <aleixpol@blue-systems.com>
            2013 Martin Klapetek <mklapetek@kde.org>
-License: LGPL-2.1+ approved by KDE e.V.
+License: LGPL-KDE-eV
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
  License as published by the Free Software Foundation; either
@@ -97,7 +97,7 @@ License: LGPL-2
 
 Files: tests/kmodifierkeyinfotest.cpp
 Copyright: Michael Leupold <lemma@confuego.org>
-License: GPL-2+ as approved by KDE e.V.
+License: GPL-KDEeV
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License as
  published by the Free Software Foundation; either version 2 of

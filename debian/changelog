@@ -1,3 +1,9 @@
+kguiaddons (5.3.0-0ubuntu1) utopic; urgency=medium
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 07 Oct 2014 11:28:07 +0100
+
 kguiaddons (5.2.0-0ubuntu1) utopic; urgency=medium
 
   * New upstream release
