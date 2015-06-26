@@ -1,3 +1,10 @@
+kguiaddons (5.11.0-1) unstable; urgency=medium
+
+  * New upstream release (5.10.0).
+  * New upstream release (5.11.0).
+
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 26 Jun 2015 14:09:51 +0200
+
 kguiaddons (5.9.0-1) experimental; urgency=medium
 
   * New upstream release (5.9.0).

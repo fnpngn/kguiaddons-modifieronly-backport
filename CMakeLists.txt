@@ -2,7 +2,11 @@ cmake_minimum_required(VERSION 2.8.12)
 
 project(KGuiAddons)
 
-find_package(ECM 5.9.0 REQUIRED NO_MODULE)
+include(FeatureSummary)
+find_package(ECM 5.11.0  NO_MODULE)
+set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://projects.kde.org/projects/kdesupport/extra-cmake-modules")
+feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
+
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
@@ -17,11 +21,11 @@ if (NOT APPLE)
     find_package(XCB MODULE COMPONENTS XCB)
 endif()
 
-include(FeatureSummary)
+
 include(GenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
-set(KF5_VERSION "5.9.0") # handled by release scripts
+set(KF5_VERSION "5.11.0") # handled by release scripts
 
 ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KGUIADDONS
                         VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/kguiaddons_version.h"
