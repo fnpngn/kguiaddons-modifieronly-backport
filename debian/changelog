@@ -1,3 +1,10 @@
+kguiaddons (5.13.0-1) unstable; urgency=medium
+
+  * New upstream release (5.13.0).
+  * Update symbols files from buildds logs (5.12.0-1).
+
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 13 Aug 2015 15:14:33 +0200
+
 kguiaddons (5.12.0-1) unstable; urgency=medium
 
   * New upstream release (5.12.0).
