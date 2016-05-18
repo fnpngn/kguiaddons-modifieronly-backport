@@ -1,3 +1,10 @@
+kguiaddons (5.22.0-1) unstable; urgency=medium
+
+  [ Automatic packaging ]
+  * Update build-deps and deps with the info from cmake
+
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 18 May 2016 23:45:16 +0200
+
 kguiaddons (5.21.0-1) experimental; urgency=medium
 
   [ Maximiliano Curia ]
