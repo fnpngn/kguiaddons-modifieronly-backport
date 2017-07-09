@@ -88,6 +88,29 @@ ecm_generate_headers(KGuiAddons_HEADERS
   REQUIRED_HEADERS KGuiAddons_HEADERS
 )
 
+find_package(PythonModuleGeneration)
+
+if (PythonModuleGeneration_FOUND)
+  ecm_generate_python_binding(
+    TARGET KF5::GuiAddons
+    PYTHONNAMESPACE PyKF5
+    MODULENAME KGuiAddons
+    INSTALL_DIR_SUFFIX ${KDE_INSTALL_PYTHONBINDINGSDIR}
+    SIP_DEPENDS
+      QtGui/QtGuimod.sip
+    HEADERS
+      colors/kcolorutils.h
+      colors/kcolorcollection.h
+      colors/kcolormimedata.h
+      text/kdatevalidator.h
+      text/kwordwrap.h
+      fonts/kfontutils.h
+      util/kiconutils.h
+      util/kimagecache.h
+      util/kmodifierkeyinfo.h
+  )
+endif()
+
 install(TARGETS KF5GuiAddons EXPORT KF5GuiAddonsTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kguiaddons_export.h
@@ -95,6 +118,26 @@ install(FILES
   ${KGuiAddons_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KGuiAddons COMPONENT Devel
 )
+
+if(BUILD_QCH)
+    ecm_add_qch(
+        KF5GuiAddons_QCH
+        NAME KGuiAddons
+        BASE_NAME KF5GuiAddons
+        VERSION ${KF5_VERSION}
+        ORG_DOMAIN org.kde
+        SOURCES # using only public headers, to cover only public API
+            ${KGuiAddons_HEADERS}
+        MD_MAINPAGE "${CMAKE_SOURCE_DIR}/README.md"
+        LINK_QCH
+            Qt5Gui_QCH
+        BLANK_MACROS
+            KGUIADDONS_EXPORT
+        TAGFILE_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
+        QCH_INSTALL_DESTINATION ${KDE_INSTALL_QTQCHDIR}
+        COMPONENT Devel
+    )
+endif()
 
 include(ECMGeneratePriFile)
 ecm_generate_pri_file(BASE_NAME KGuiAddons LIB_NAME KF5GuiAddons DEPS "gui" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR_KF5}/KGuiAddons)

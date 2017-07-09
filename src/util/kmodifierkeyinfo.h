@@ -28,6 +28,8 @@
 class KModifierKeyInfoProvider;
 
 /**
+ * @class KModifierKeyInfo kmodifierkeyinfo.h KModifierKeyInfo
+ *
  * Get information about the state of the keyboard's modifier keys.
  *
  * This class provides cross-platform information about the state of the
@@ -51,7 +53,7 @@ public:
     /**
      * Default constructor
      */
-    KModifierKeyInfo(QObject *parent = 0);
+    KModifierKeyInfo(QObject *parent = nullptr);
 
     /**
      * Destructor
