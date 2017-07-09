@@ -31,12 +31,16 @@ class QPainter;
 class QSizeF;
 class QString;
 
+/**
+ * @namespace KFontUtils
+ * Provides utility functions for font data.
+ */
 namespace KFontUtils
 {
 /** Modifiers for the adaptFontSize function */
 enum AdaptFontSizeOption {
-    NoFlags = 0x01 /** No modifier */,
-    DoNotAllowWordWrap = 0x02  /** Do not use word wrapping */
+    NoFlags = 0x01, ///< No modifier
+    DoNotAllowWordWrap = 0x02  ///< Do not use word wrapping
 };
 Q_DECLARE_FLAGS(AdaptFontSizeOptions, AdaptFontSizeOption)
 
