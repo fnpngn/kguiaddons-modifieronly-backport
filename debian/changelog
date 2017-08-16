@@ -1,3 +1,14 @@
+kguiaddons (5.37.0-1) experimental; urgency=medium
+
+  * New upstream release (5.37.0).
+  * Update build-deps and deps with the info from cmake
+  * Bump group breaks (5.37)
+  * Add a libkf5guiaddons-doc package for the qch files
+  * Bump Standards-Version to 4.0.1.
+  * Release to experimental
+
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 16 Aug 2017 10:42:49 +0200
+
 kguiaddons (5.36.0-1) experimental; urgency=medium
 
   [ Maximiliano Curia ]
