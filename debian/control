@@ -4,9 +4,9 @@ Priority: optional
 Maintainer: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Maximiliano Curia <maxy@debian.org>
 Build-Depends: cmake (>= 3.0~),
-               debhelper (>= 9),
+               debhelper (>= 11~),
                doxygen,
-               extra-cmake-modules (>= 5.41.0~),
+               extra-cmake-modules (>= 5.42.0~),
                graphviz,
                libqt5sql5-sqlite:native,
                libqt5x11extras5-dev (>= 5.7.0~),
@@ -17,7 +17,7 @@ Build-Depends: cmake (>= 3.0~),
                qtbase5-dev (>= 5.7.0~),
                qtbase5-private-dev,
                qttools5-dev-tools (>= 5.4),
-Standards-Version: 4.1.2
+Standards-Version: 4.1.3
 Homepage: http://projects.kde.org/kguiaddons
 Vcs-Browser: https://anonscm.debian.org/git/pkg-kde/frameworks/kguiaddons.git
 Vcs-Git: https://anonscm.debian.org/git/pkg-kde/frameworks/kguiaddons.git
@@ -33,7 +33,7 @@ Recommends: libkf5guiaddons-doc (= ${source:Version})
 Description: development headers for the kguiaddons framework
  This package contains development files for building software that uses
  libraries from the kguiaddon framework
-Breaks: libkf5configwidgets-dev (<< 5.41), libkf5kdelibs4support-dev (<< 5.41)
+Breaks: libkf5configwidgets-dev (<< 5.42), libkf5kdelibs4support-dev (<< 5.42)
 
 Package: libkf5guiaddons-doc
 Section: doc
@@ -51,7 +51,8 @@ Multi-Arch: same
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: additional addons for QtGui
  Qt widgets for colours, fonts and text
-Breaks: libkf5configwidgets5 (<< 5.41),
-        libkf5kdelibs4support5 (<< 5.41),
-        libkf5plasma5 (<< 5.41),
-        libkf5texteditor5 (<< 5.41),
+Breaks: libkf5configwidgets5 (<< 5.42),
+        libkf5kdelibs4support5 (<< 5.42),
+        libkf5kdelibs4support5-bin (<< 5.42),
+        libkf5plasma5 (<< 5.42),
+        libkf5texteditor5 (<< 5.42),
