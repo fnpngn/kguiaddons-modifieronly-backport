@@ -1,3 +1,14 @@
+kguiaddons (5.46.0-1) unstable; urgency=medium
+
+  * New upstream release (5.46.0).
+  * Update build-deps and deps with the info from cmake
+  * Bump Standards-Version to 4.1.4.
+  * Use https for the debian/copyright
+  * Bump group breaks (5.46)
+  * Release to unstable
+
+ -- Maximiliano Curia <maxy@debian.org>  Thu, 17 May 2018 22:14:58 +0200
+
 kguiaddons (5.45.0-1) unstable; urgency=medium
 
   * New upstream release (5.45.0).
