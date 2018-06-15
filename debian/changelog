@@ -1,3 +1,12 @@
+kguiaddons (5.47.0-1) unstable; urgency=medium
+
+  * New upstream release (5.47.0).
+  * Update build-deps and deps with the info from cmake
+  * Bump group breaks (5.47)
+  * Release to unstable
+
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 15 Jun 2018 12:09:15 +0200
+
 kguiaddons (5.46.0-1) unstable; urgency=medium
 
   * New upstream release (5.46.0).

@@ -6,7 +6,7 @@ Uploaders: Maximiliano Curia <maxy@debian.org>
 Build-Depends: cmake (>= 3.0~),
                debhelper (>= 11~),
                doxygen,
-               extra-cmake-modules (>= 5.46.0~),
+               extra-cmake-modules (>= 5.47.0~),
                graphviz,
                libqt5sql5-sqlite:native,
                libqt5x11extras5-dev (>= 5.8.0~),
@@ -25,7 +25,7 @@ Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/kguiaddons.git
 Package: libkf5guiaddons-dev
 Section: libdevel
 Architecture: any
-Depends: libkf5coreaddons-dev (>= 5.46),
+Depends: libkf5coreaddons-dev (>= 5.47),
          libkf5guiaddons5 (= ${binary:Version}),
          qtbase5-dev (>= 5.8.0~),
          ${misc:Depends},
@@ -33,7 +33,7 @@ Recommends: libkf5guiaddons-doc (= ${source:Version})
 Description: development headers for the kguiaddons framework
  This package contains development files for building software that uses
  libraries from the kguiaddon framework
-Breaks: libkf5configwidgets-dev (<< 5.46), libkf5kdelibs4support-dev (<< 5.46)
+Breaks: libkf5configwidgets-dev (<< 5.47), libkf5kdelibs4support-dev (<< 5.47)
 
 Package: libkf5guiaddons-doc
 Section: doc
@@ -51,8 +51,8 @@ Multi-Arch: same
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: additional addons for QtGui
  Qt widgets for colours, fonts and text
-Breaks: libkf5configwidgets5 (<< 5.46),
-        libkf5kdelibs4support5 (<< 5.46),
+Breaks: libkf5configwidgets5 (<< 5.47),
+        libkf5kdelibs4support5 (<< 5.47),
         libkf5kdelibs4support5-bin (<< 5.42),
-        libkf5plasma5 (<< 5.46),
-        libkf5texteditor5 (<< 5.46),
+        libkf5plasma5 (<< 5.47),
+        libkf5texteditor5 (<< 5.47),
