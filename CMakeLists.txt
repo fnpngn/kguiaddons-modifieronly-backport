@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(KF5_VERSION "5.47.0") # handled by release scripts
+set(KF5_VERSION "5.49.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF5_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.47.0  NO_MODULE)
+find_package(ECM 5.49.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://projects.kde.org/projects/kdesupport/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -37,8 +37,10 @@ option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, 
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 
 add_subdirectory(src)
-add_subdirectory(autotests)
-add_subdirectory(tests)
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+    add_subdirectory(tests)
+endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5GuiAddons")
