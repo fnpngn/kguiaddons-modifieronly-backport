@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.14.0 amd64
+# SymbolsHelper-Confirmed: 5.52.0 amd64
 libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringRK6QSizeFdd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringdddd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
@@ -17,6 +17,9 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZN14KColorMimeData12fromMimeDataEPK9QMimeData@Base 4.96.0
  _ZN14KColorMimeData16populateMimeDataEP9QMimeDataRK6QColor@Base 4.96.0
  _ZN14KColorMimeData9canDecodeEPK9QMimeData@Base 4.96.0
+ _ZN14KDateValidator11qt_metacallEN11QMetaObject4CallEiPPv@Base 5.52.0
+ _ZN14KDateValidator11qt_metacastEPKc@Base 5.52.0
+ _ZN14KDateValidator16staticMetaObjectE@Base 5.52.0
  _ZN14KDateValidatorC1EP7QObject@Base 4.96.0
  _ZN14KDateValidatorC2EP7QObject@Base 4.96.0
  (optional=gccinternal|arch=)_ZN14KDateValidatorD0Ev@Base 4.96.0
@@ -75,6 +78,7 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZN9KWordWrapD1Ev@Base 4.96.0
  _ZN9KWordWrapD2Ev@Base 4.96.0
  _ZN9KWordWrapaSERKS_@Base 4.98.0
+ _ZNK14KDateValidator10metaObjectEv@Base 5.52.0
  _ZNK14KDateValidator4dateERK7QStringR5QDate@Base 4.96.0
  _ZNK14KDateValidator5fixupER7QString@Base 4.96.0
  _ZNK14KDateValidator8validateER7QStringRi@Base 4.96.0

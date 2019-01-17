@@ -1,10 +1,10 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 
-set(KF5_VERSION "5.51.0") # handled by release scripts
+set(KF5_VERSION "5.54.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF5_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.51.0  NO_MODULE)
+find_package(ECM 5.54.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://projects.kde.org/projects/kdesupport/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -14,7 +14,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
-set(REQUIRED_QT_VERSION 5.8.0)
+set(REQUIRED_QT_VERSION 5.9.0)
 find_package(Qt5Gui ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
 
 if (NOT APPLE AND NOT WIN32)
@@ -35,12 +35,8 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KGUIADDONS
 
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
+#add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x060000)
 
-add_definitions(-DQT_NO_CAST_FROM_ASCII)
-add_definitions(-DQT_NO_CAST_TO_ASCII)
-add_definitions(-DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT)
-add_definitions(-DQT_NO_URL_CAST_FROM_STRING)
-add_definitions(-DQT_USE_QSTRINGBUILDER)
 add_subdirectory(src)
 if (BUILD_TESTING)
     add_subdirectory(autotests)
