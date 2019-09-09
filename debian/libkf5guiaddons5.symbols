@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.52.0 amd64
+# SymbolsHelper-Confirmed: 5.61.0 amd64
 libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringRK6QSizeFdd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringdddd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
@@ -56,6 +56,23 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZN16KModifierKeyInfoD0Ev@Base 4.96.0
  _ZN16KModifierKeyInfoD1Ev@Base 4.96.0
  _ZN16KModifierKeyInfoD2Ev@Base 4.96.0
+ _ZN24KModifierKeyInfoProvider10keyLatchedEN2Qt3KeyEb@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider10keyPressedEN2Qt3KeyEb@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider10keyRemovedEN2Qt3KeyE@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider11qt_metacallEN11QMetaObject4CallEiPPv@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider11qt_metacastEPKc@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider12setKeyLockedEN2Qt3KeyEb@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider12stateUpdatedEN2Qt3KeyE6QFlagsINS_13ModifierStateEE@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider13buttonPressedEN2Qt11MouseButtonEb@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider13setKeyLatchedEN2Qt3KeyEb@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider16staticMetaObjectE@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider8keyAddedEN2Qt3KeyE@Base 5.61.0
+ _ZN24KModifierKeyInfoProvider9keyLockedEN2Qt3KeyEb@Base 5.61.0
+ _ZN24KModifierKeyInfoProviderC1Ev@Base 5.61.0
+ _ZN24KModifierKeyInfoProviderC2Ev@Base 5.61.0
+ _ZN24KModifierKeyInfoProviderD0Ev@Base 5.61.0
+ _ZN24KModifierKeyInfoProviderD1Ev@Base 5.61.0
+ _ZN24KModifierKeyInfoProviderD2Ev@Base 5.61.0
  _ZN30KLocalImageCacheImplementation15clearLocalCacheEv@Base 4.96.0
  _ZN30KLocalImageCacheImplementation16setPixmapCachingEb@Base 4.96.0
  _ZN30KLocalImageCacheImplementation18updateModifiedTimeEv@Base 4.96.0
@@ -97,6 +114,13 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZNK16KModifierKeyInfo15isButtonPressedEN2Qt11MouseButtonE@Base 4.96.0
  _ZNK16KModifierKeyInfo8knowsKeyEN2Qt3KeyE@Base 4.96.0
  _ZNK16KModifierKeyInfo9knownKeysEv@Base 4.96.0
+ _ZNK24KModifierKeyInfoProvider10metaObjectEv@Base 5.61.0
+ _ZNK24KModifierKeyInfoProvider11isKeyLockedEN2Qt3KeyE@Base 5.61.0
+ _ZNK24KModifierKeyInfoProvider12isKeyLatchedEN2Qt3KeyE@Base 5.61.0
+ _ZNK24KModifierKeyInfoProvider12isKeyPressedEN2Qt3KeyE@Base 5.61.0
+ _ZNK24KModifierKeyInfoProvider15isButtonPressedEN2Qt11MouseButtonE@Base 5.61.0
+ _ZNK24KModifierKeyInfoProvider8knowsKeyEN2Qt3KeyE@Base 5.61.0
+ _ZNK24KModifierKeyInfoProvider9knownKeysEv@Base 5.61.0
  _ZNK30KLocalImageCacheImplementation13pixmapCachingEv@Base 4.96.0
  _ZNK30KLocalImageCacheImplementation14serializeImageERK6QImage@Base 4.96.0
  _ZNK30KLocalImageCacheImplementation15findLocalPixmapERK7QStringP7QPixmap@Base 4.96.0
@@ -107,12 +131,17 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZNK9KWordWrap13wrappedStringEv@Base 4.96.0
  _ZNK9KWordWrap15truncatedStringEb@Base 4.96.0
  _ZNK9KWordWrap8drawTextEP8QPainteriii@Base 4.96.0
+ _ZTI11QSharedData@Base 5.61.0
  _ZTI14KDateValidator@Base 4.96.0
  _ZTI16KModifierKeyInfo@Base 4.96.0
+ _ZTI24KModifierKeyInfoProvider@Base 5.61.0
  _ZTI30KLocalImageCacheImplementation@Base 4.96.0
+ _ZTS11QSharedData@Base 5.61.0
  _ZTS14KDateValidator@Base 4.96.0
  _ZTS16KModifierKeyInfo@Base 4.96.0
+ _ZTS24KModifierKeyInfoProvider@Base 5.61.0
  _ZTS30KLocalImageCacheImplementation@Base 4.96.0
  _ZTV14KDateValidator@Base 4.96.0
  _ZTV16KModifierKeyInfo@Base 4.96.0
+ _ZTV24KModifierKeyInfoProvider@Base 5.61.0
  _ZTV30KLocalImageCacheImplementation@Base 4.96.0

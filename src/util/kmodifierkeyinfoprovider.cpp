@@ -20,26 +20,52 @@
 
 #include "kmodifierkeyinfoprovider_p.h"
 
+KModifierKeyInfoProvider::KModifierKeyInfoProvider()
+    : QObject(nullptr)
+{
+}
+
+KModifierKeyInfoProvider::~KModifierKeyInfoProvider()
+{
+}
+
+bool KModifierKeyInfoProvider::setKeyLatched(Qt::Key key, bool latched)
+{
+    Q_UNUSED(key);
+    Q_UNUSED(latched);
+    return false;
+}
+
+bool KModifierKeyInfoProvider::setKeyLocked(Qt::Key key, bool locked)
+{
+    Q_UNUSED(key);
+    Q_UNUSED(locked);
+    return false;
+}
+
 bool KModifierKeyInfoProvider::isKeyPressed(Qt::Key key) const
 {
-    if (m_modifierStates.contains(key)) {
-        return m_modifierStates[key] & Pressed;
+    auto it = m_modifierStates.constFind(key);
+    if (it != m_modifierStates.constEnd()) {
+        return *it & Pressed;
     }
     return false;
 }
 
 bool KModifierKeyInfoProvider::isKeyLatched(Qt::Key key) const
 {
-    if (m_modifierStates.contains(key)) {
-        return m_modifierStates[key] & Latched;
+    auto it = m_modifierStates.constFind(key);
+    if (it != m_modifierStates.constEnd()) {
+        return *it & Latched;
     }
     return false;
 }
 
 bool KModifierKeyInfoProvider::isKeyLocked(Qt::Key key) const
 {
-    if (m_modifierStates.contains(key)) {
-        return m_modifierStates[key] & Locked;
+    auto it = m_modifierStates.constFind(key);
+    if (it != m_modifierStates.constEnd()) {
+        return *it & Locked;
     }
     return false;
 }
@@ -62,4 +88,20 @@ const QList<Qt::Key> KModifierKeyInfoProvider::knownKeys() const
     return m_modifierStates.keys();
 }
 
-#include "moc_kmodifierkeyinfoprovider_p.cpp"
+void KModifierKeyInfoProvider::stateUpdated(Qt::Key key, KModifierKeyInfoProvider::ModifierStates newState)
+{
+    auto &state = m_modifierStates[key];
+    if (newState != state) {
+        const auto difference = (newState ^ state);
+        state = newState;
+        if (difference & Pressed) {
+            emit keyPressed(key, newState & Pressed);
+        }
+        if (difference & Latched) {
+            emit keyLatched(key, newState & Latched);
+        }
+        if (difference & Locked) {
+            emit keyLocked(key, newState & Locked);
+        }
+    }
+}
