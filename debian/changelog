@@ -1,3 +1,15 @@
+kguiaddons (5.62.0-2) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * Install the kmodifierkey_xcb.so plugin (Closes: #945833). Thanks Luca for
+    the bug report and the triaging!
+  * Avoid future missing installed parts by passing --fail-missing to
+    dh_missing.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Sun, 01 Dec 2019 14:55:18 -0300
+
 kguiaddons (5.62.0-1) unstable; urgency=medium
 
   * New upstream release (5.62.0).
