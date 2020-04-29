@@ -1,23 +1,10 @@
-/* This file is part of the KDE project
- * Copyright (C) 2007 Matthew Woehlke <mw_triad@users.sourceforge.net>
- * Copyright (C) 2007 Thomas Zander <zander@kde.org>
- * Copyright (C) 2007 Zack Rusin <zack@kde.org>
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Library General Public
- * License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Library General Public License for more details.
- *
- * You should have received a copy of the GNU Library General Public License
- * along with this library; see the file COPYING.LIB.  If not, write to
- * the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA 02110-1301, USA.
- */
+/*  This file is part of the KDE project
+    SPDX-FileCopyrightText: 2007 Matthew Woehlke <mw_triad@users.sourceforge.net>
+    SPDX-FileCopyrightText: 2007 Thomas Zander <zander@kde.org>
+    SPDX-FileCopyrightText: 2007 Zack Rusin <zack@kde.org>
+
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
 #include <kcolorutils.h>
 #include "kcolorspaces_p.h"
 #include "kguiaddons_colorhelpers_p.h"
@@ -35,6 +22,16 @@ static inline qreal mixQreal(qreal a, qreal b, qreal bias)
 }
 // END internal helper functions
 
+qreal KColorUtils::hue(const QColor &color)
+{
+    return KColorSpaces::KHCY::hue(color);
+}
+
+qreal KColorUtils::chroma(const QColor &color)
+{
+    return KColorSpaces::KHCY::chroma(color);
+}
+
 qreal KColorUtils::luma(const QColor &color)
 {
     return KColorSpaces::KHCY::luma(color);
@@ -47,11 +44,16 @@ void KColorUtils::getHcy(const QColor &color, qreal *h, qreal *c, qreal *y, qrea
     }
     KColorSpaces::KHCY khcy(color);
     *c = khcy.c;
-    *h = khcy.h;
+    *h = khcy.h + (khcy.h < 0.0 ? 1.0 : 0.0);
     *y = khcy.y;
     if (a) {
         *a = khcy.a;
     }
+}
+
+QColor KColorUtils::hcyColor(qreal h, qreal c, qreal y, qreal a)
+{
+    return KColorSpaces::KHCY(h, c, y, a).qColor();
 }
 
 static qreal contrastRatioForLuma(qreal y1, qreal y2)
