@@ -1,30 +1,15 @@
-/*********************************************************************************
- *                                                                               *
- * Copyright (C) 2013 Aleix Pol Gonzalez <aleixpol@blue-systems.com>             *
- *                                                                               *
- * This library is free software; you can redistribute it and/or                 *
- * modify it under the terms of the GNU Lesser General Public                    *
- * License as published by the Free Software Foundation; either                  *
- * version 2.1 of the License, or (at your option) version 3, or any             *
- * later version accepted by the membership of KDE e.V. (or its                  *
- * successor approved by the membership of KDE e.V.), which shall                *
- * act as a proxy defined in Section 6 of version 3 of the license.              *
- *                                                                               *
- * This library is distributed in the hope that it will be useful,               *
- * but WITHOUT ANY WARRANTY; without even the implied warranty of                *
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU             *
- * Lesser General Public License for more details.                               *
- *                                                                               *
- * You should have received a copy of the GNU Lesser General Public              *
- * License along with this library.  If not, see <http://www.gnu.org/licenses/>. *
- *                                                                               *
- *********************************************************************************/
+/*
+    SPDX-FileCopyrightText: 2013 Aleix Pol Gonzalez <aleixpol@blue-systems.com>
+
+    SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
+*/
 
 #include <QObject>
 #include <QUrl>
 #include <QStandardPaths>
 #include <QCoreApplication>
 #include <QProcess>
+#include <QDebug>
 #include <QDesktopServices>
 #include <QLocale>
 
@@ -37,23 +22,39 @@ public:
 public Q_SLOTS:
     void openHelp(const QUrl &url)
     {
+        const QString appName = QCoreApplication::applicationName();
+
         QUrl u(url);
-        if (u.path() == QLatin1String("/")) {
-            u.setPath(QCoreApplication::applicationName());
+        if (u.path() == QLatin1Char('/')) {
+            u.setPath(appName);
         }
 
         const QString helpcenter = QStandardPaths::findExecutable(QStringLiteral("khelpcenter"));
-        if (helpcenter.isEmpty()) {
-            if (QCoreApplication::organizationDomain() == QLatin1String("kde.org")) {
-                //if khelpcenter is not installed and it's a KDE application, use docs.kde.org
-                const QUrl httpUrl(QStringLiteral("https://docs.kde.org/index.php?branch=stable5&language=")+QLocale().name()+QStringLiteral("&application=") +
-                    QCoreApplication::applicationName() + QStringLiteral("&path=") + url.path());
-                QDesktopServices::openUrl(httpUrl);
-            } else
-                QDesktopServices::openUrl(u);
-        } else {
+        if (!helpcenter.isEmpty()) { // use khelpcenter if it is available
             QProcess::startDetached(helpcenter, QStringList(u.toString()));
+            return;
         }
+
+        //if khelpcenter is not available and it's a KDE application, use docs.kde.org
+        if (QCoreApplication::organizationDomain() == QLatin1String("kde.org")) {
+            QString path = url.path();
+            QString docPath;
+            if (appName == QLatin1String("systemsettings") && path.startsWith(QLatin1String("/kcontrol"))) {
+                // special case for kcm modules
+                // e.g. "help:/kcontrol/fonts/index.html" >>> "&application=kcontorl/fonts"
+                docPath = path.remove(0, 1).remove(QLatin1String("/index.html"));
+            } else { //e.g. "help:/okular", "help:/systemsettings"
+                docPath = appName + QStringLiteral("&path=") + path;
+            }
+            const QUrl httpUrl(QLatin1String("https://docs.kde.org/index.php?branch=stable5&language=")
+                               + QLocale().name() + QLatin1String("&application=") + docPath);
+            QDesktopServices::openUrl(httpUrl);
+            return;
+        }
+
+        // not a KDE application
+        // TODO: use qCWarning(<logging-category>) when we have loggin categories set up
+        qDebug() << "Could not find a suitable handler for " << u.toString();
     }
 };
 

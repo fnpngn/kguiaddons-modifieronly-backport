@@ -1,3 +1,21 @@
+kguiaddons (5.69.0-1) experimental; urgency=medium
+
+  * Team upload.
+
+  [ Sandro Knauß ]
+  * Bump compat level to 12.
+  * Bump Standards-Version to 4.5.0 (No changes needed).
+  * Get rid of debug-symbol-migration package.
+  * Add Rules-Requires-Root field to control.
+  * New upstream release (5.69.0).
+  * Update build-deps and deps with the info from cmake.
+  * Enable hardening all.
+  * Add Build-Depends-Package to symbols file.
+  * Update symbols from build for 5.69.0.
+  * Remove not needed injection of linker flags.
+
+ -- Sandro Knauß <hefee@debian.org>  Thu, 30 Apr 2020 00:56:05 +0200
+
 kguiaddons (5.62.0-2) unstable; urgency=medium
 
   * Team upload.
@@ -486,7 +504,7 @@ kguiaddons (5.12.0-1) unstable; urgency=medium
 kguiaddons (5.12.0-0ubuntu1) wily; urgency=medium
 
   * New upstream release
-  * Vivid backport. 
+  * Vivid backport.
 
  -- Scarlett Clark <sgclark@kubuntu.org>  Mon, 03 Aug 2015 14:30:08 +0200
 
