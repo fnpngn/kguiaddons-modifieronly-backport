@@ -4,9 +4,9 @@ Priority: optional
 Maintainer: Debian/Kubuntu Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
 Uploaders: Maximiliano Curia <maxy@debian.org>
 Build-Depends: cmake (>= 3.5~),
-               debhelper-compat (= 12),
+               debhelper-compat (= 13),
                doxygen,
-               extra-cmake-modules (>= 5.69.0~),
+               extra-cmake-modules (>= 5.70.0~),
                graphviz,
                libqt5sql5-sqlite:native,
                libqt5x11extras5-dev (>= 5.12.0~),
@@ -19,7 +19,7 @@ Build-Depends: cmake (>= 3.5~),
                qttools5-dev,
                qttools5-dev-tools (>= 5.4)
 Standards-Version: 4.5.0
-Homepage: http://projects.kde.org/kguiaddons
+Homepage: https://projects.kde.org/kguiaddons
 Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/kguiaddons
 Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/kguiaddons.git
 Rules-Requires-Root: no
@@ -27,8 +27,7 @@ Rules-Requires-Root: no
 Package: libkf5guiaddons-dev
 Section: libdevel
 Architecture: any
-Depends: libkf5coreaddons-dev (>= 5.54),
-         libkf5guiaddons5 (= ${binary:Version}),
+Depends: libkf5guiaddons5 (= ${binary:Version}),
          qtbase5-dev (>= 5.12.0~),
          ${misc:Depends}
 Recommends: libkf5guiaddons-doc (= ${source:Version})
