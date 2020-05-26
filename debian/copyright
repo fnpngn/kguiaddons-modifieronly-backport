@@ -1,6 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: kguiaddons
 Source: https://projects.kde.org/projects/frameworks/kguiaddons
+Upstream-Contact: kde-frameworks-devel@kde.org
 
 Files: *
 Copyright: 2005-2014, Albert Astals Cid <aacid@kde.org>
