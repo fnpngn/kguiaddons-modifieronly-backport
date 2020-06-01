@@ -27,7 +27,8 @@ Rules-Requires-Root: no
 Package: libkf5guiaddons-dev
 Section: libdevel
 Architecture: any
-Depends: libkf5guiaddons5 (= ${binary:Version}),
+Depends: libkf5coreaddons-dev (>= 5.70.0~),
+         libkf5guiaddons5 (= ${binary:Version}),
          qtbase5-dev (>= 5.12.0~),
          ${misc:Depends}
 Recommends: libkf5guiaddons-doc (= ${source:Version})
