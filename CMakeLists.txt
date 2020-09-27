@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(KF5_VERSION "5.70.0") # handled by release scripts
+set(KF5_VERSION "5.74.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF5_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.70.0  NO_MODULE)
+find_package(ECM 5.74.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -26,6 +26,7 @@ endif()
 include(GenerateExportHeader)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
+include(ECMQtDeclareLoggingCategory)
 include(ECMAddQch)
 
 ecm_setup_version(PROJECT VARIABLE_PREFIX KGUIADDONS

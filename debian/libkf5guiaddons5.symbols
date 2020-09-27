@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.69.0 amd64
+# SymbolsHelper-Confirmed: 5.74.0 amd64
 libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
 * Build-Depends-Package: libkf5guiaddons-dev
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringRK6QSizeFdd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
@@ -17,6 +17,14 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZN11KColorUtils6getHcyERK6QColorPdS3_S3_S3_@Base 4.96.0
  _ZN11KColorUtils7lightenERK6QColordd@Base 4.96.0
  _ZN11KColorUtils8hcyColorEdddd@Base 5.69.0
+ _ZN12KCursorSaver13restoreCursorEv@Base 5.74.0
+ _ZN12KCursorSaverC1EN2Qt11CursorShapeE@Base 5.74.0
+ _ZN12KCursorSaverC1EOS_@Base 5.74.0
+ _ZN12KCursorSaverC2EN2Qt11CursorShapeE@Base 5.74.0
+ _ZN12KCursorSaverC2EOS_@Base 5.74.0
+ _ZN12KCursorSaverD1Ev@Base 5.74.0
+ _ZN12KCursorSaverD2Ev@Base 5.74.0
+ _ZN12KCursorSaveraSEOS_@Base 5.74.0
  _ZN14KColorMimeData10createDragERK6QColorP7QObject@Base 4.96.0
  _ZN14KColorMimeData12fromMimeDataEPK9QMimeData@Base 4.96.0
  _ZN14KColorMimeData16populateMimeDataEP9QMimeDataRK6QColor@Base 4.96.0
