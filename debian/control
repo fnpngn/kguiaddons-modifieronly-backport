@@ -6,7 +6,7 @@ Uploaders: Maximiliano Curia <maxy@debian.org>
 Build-Depends: cmake (>= 3.5~),
                debhelper-compat (= 13),
                doxygen,
-               extra-cmake-modules (>= 5.70.0~),
+               extra-cmake-modules (>= 5.74.0~),
                graphviz,
                libqt5sql5-sqlite:native,
                libqt5x11extras5-dev (>= 5.12.0~),
@@ -17,9 +17,9 @@ Build-Depends: cmake (>= 3.5~),
                qtbase5-dev (>= 5.12.0~),
                qtbase5-private-dev,
                qttools5-dev,
-               qttools5-dev-tools (>= 5.4)
+               qttools5-dev-tools (>= 5.4),
 Standards-Version: 4.5.0
-Homepage: https://projects.kde.org/kguiaddons
+Homepage: https://invent.kde.org/frameworks/kguiaddons
 Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/kguiaddons
 Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/kguiaddons.git
 Rules-Requires-Root: no
@@ -27,10 +27,9 @@ Rules-Requires-Root: no
 Package: libkf5guiaddons-dev
 Section: libdevel
 Architecture: any
-Depends: libkf5coreaddons-dev (>= 5.70.0~),
-         libkf5guiaddons5 (= ${binary:Version}),
+Depends: libkf5guiaddons5 (= ${binary:Version}),
          qtbase5-dev (>= 5.12.0~),
-         ${misc:Depends}
+         ${misc:Depends},
 Recommends: libkf5guiaddons-doc (= ${source:Version})
 Description: development headers for the kguiaddons framework
  This package contains development files for building software that uses
@@ -57,4 +56,4 @@ Breaks: libkf5configwidgets5 (<< 5.54),
         libkf5kdelibs4support5 (<< 5.54),
         libkf5kdelibs4support5-bin (<< 5.42),
         libkf5plasma5 (<< 5.54),
-        libkf5texteditor5 (<< 5.54)
+        libkf5texteditor5 (<< 5.54),
