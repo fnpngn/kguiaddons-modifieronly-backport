@@ -1,3 +1,20 @@
+kguiaddons (5.74.0-3) unstable; urgency=medium
+
+  * Team upload.
+  * Drop the 'testsuite' autopkgtest, as it does not test the installed
+    packages.
+  * Remove the unused debian/meta/ stuff.
+  * Do not ship anymore the almost empty upstream README.md as documentation
+    in libkf5guiaddons-dev.
+  * Stop passing --fail-missing to dh_missing, as it is the default in
+    debhelper compatibility 13+.
+  * Pass -DBUILD_TESTING=OFF to cmake to disable the build of tests, as they
+    are not run at build time anyway.
+  * Restore (again) the libkf5coreaddons-dev dependency in libkf5guiaddons-dev,
+    as one header uses CoreAddons.
+
+ -- Pino Toscano <pino@debian.org>  Fri, 23 Oct 2020 15:02:33 +0200
+
 kguiaddons (5.74.0-2) unstable; urgency=medium
 
   * Team upload to unstable.
