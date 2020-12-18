@@ -1,3 +1,14 @@
+kguiaddons (5.77.0-1) experimental; urgency=medium
+
+  [ Norbert Preining ]
+  * Bump Standards-Version to 4.5.1 (No changes needed).
+  * New upstream release (5.77.0).
+  * Add myself to Uploaders.
+  * Update maintainer to Debian Qt/KDE Maintainers.
+  * Update symbols.
+
+ -- Norbert Preining <norbert@preining.info>  Fri, 18 Dec 2020 10:03:53 +0900
+
 kguiaddons (5.74.0-3) unstable; urgency=medium
 
   * Team upload.

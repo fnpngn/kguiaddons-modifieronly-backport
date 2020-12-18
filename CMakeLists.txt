@@ -1,27 +1,48 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(KF5_VERSION "5.74.0") # handled by release scripts
+set(KF5_VERSION "5.77.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF5_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.74.0  NO_MODULE)
+find_package(ECM 5.77.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
+
+
+option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
+add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
+
+if (UNIX AND NOT ANDROID)
+    option(WITH_WAYLAND "Build with support for KeySequenceEditor inhibiting shortcuts on Wayland" ON)
+    add_feature_info(WAYLAND ${WITH_WAYLAND} "KeySequenceEditor inhibiting shortcuts on Wayland")
+else()
+    set(WITH_WAYLAND OFF)
+endif()
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
-set(REQUIRED_QT_VERSION 5.12.0)
-find_package(Qt5Gui ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+
+set(REQUIRED_QT_VERSION 5.13.0)
+if (WITH_WAYLAND)
+    set(_qtgui_find_components COMPONENTS Private)
+endif()
+# QtGui must be found becore Qt5WaylandClient
+find_package(Qt5Gui ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE ${_qtgui_find_components})
 
 if (NOT APPLE AND NOT WIN32)
     find_package(X11 MODULE)
     find_package(XCB MODULE COMPONENTS XCB)
 endif()
 
+if (WITH_WAYLAND)
+    find_package(Qt5WaylandClient ${REQUIRED_QT_VERSION} NO_MODULE)
+    find_package(QtWaylandScanner REQUIRED)
+    find_package(Wayland 1.9 REQUIRED Client)
+endif()
 
 include(GenerateExportHeader)
 include(ECMSetupVersion)
@@ -34,8 +55,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KGUIADDONS
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5GuiAddonsConfigVersion.cmake"
                         SOVERSION 5)
 
-option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
-add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
+
 add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
 add_definitions(-DQT_NO_FOREACH)
 add_subdirectory(src)

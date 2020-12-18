@@ -24,13 +24,13 @@ class KModifierKeyInfoProvider;
  * state as well.
  *
  * It recognizes two states a key can be in:
- * <ul><li><i>locked</i>: eg. caps-locked (aka toggled)</li>
- *     <li><i>latched</i>: the key is temporarily locked but will be unlocked upon
- *                          the next keypress.</li></ul>
+ * @li @em locked: eg. caps-locked (a.k.a. toggled)
+ * @li @em latched the key is temporarily locked but will be unlocked upon
+ *                          the next keypress.
  *
- * An application can either query the states synchronously (@see isKeyLatched,
- * @see isKeyLocked) or connect to KModifierKeyInfo's signals to be notified about
- * changes (@see keyLatched, @see keyLocked).
+ * An application can either query the states synchronously (isKeyLatched(),
+ * isKeyLocked()) or connect to KModifierKeyInfo's signals to be notified about
+ * changes (keyLatched(), keyLocked()).
  */
 class KGUIADDONS_EXPORT KModifierKeyInfo : public QObject
 {
