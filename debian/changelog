@@ -1,3 +1,10 @@
+kguiaddons (5.77.0-2) experimental; urgency=medium
+
+  [ Norbert Preining ]
+  * Update build-deps and deps with the info from cmake.
+
+ -- Norbert Preining <norbert@preining.info>  Fri, 18 Dec 2020 15:53:13 +0900
+
 kguiaddons (5.77.0-1) experimental; urgency=medium
 
   [ Norbert Preining ]
