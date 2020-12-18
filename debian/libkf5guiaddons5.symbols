@@ -68,6 +68,24 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZN16KModifierKeyInfoD0Ev@Base 4.96.0
  _ZN16KModifierKeyInfoD1Ev@Base 4.96.0
  _ZN16KModifierKeyInfoD2Ev@Base 4.96.0
+ _ZN19KeySequenceRecorder11qt_metacallEN11QMetaObject4CallEiPPv@Base 5.77.0
+ _ZN19KeySequenceRecorder11qt_metacastEPKc@Base 5.77.0
+ _ZN19KeySequenceRecorder13windowChangedEv@Base 5.77.0
+ _ZN19KeySequenceRecorder14gotKeySequenceERK12QKeySequence@Base 5.77.0
+ _ZN19KeySequenceRecorder14startRecordingEv@Base 5.77.0
+ _ZN19KeySequenceRecorder16recordingChangedEv@Base 5.77.0
+ _ZN19KeySequenceRecorder16staticMetaObjectE@Base 5.77.0
+ _ZN19KeySequenceRecorder22setModifierlessAllowedEb@Base 5.77.0
+ _ZN19KeySequenceRecorder25currentKeySequenceChangedEv@Base 5.77.0
+ _ZN19KeySequenceRecorder26modifierlessAllowedChangedEv@Base 5.77.0
+ _ZN19KeySequenceRecorder27setMultiKeyShortcutsAllowedEb@Base 5.77.0
+ _ZN19KeySequenceRecorder31multiKeyShortcutsAllowedChangedEv@Base 5.77.0
+ _ZN19KeySequenceRecorder9setWindowEP7QWindow@Base 5.77.0
+ _ZN19KeySequenceRecorderC1EP7QWindowP7QObject@Base 5.77.0
+ _ZN19KeySequenceRecorderC2EP7QWindowP7QObject@Base 5.77.0
+ _ZN19KeySequenceRecorderD0Ev@Base 5.77.0
+ _ZN19KeySequenceRecorderD1Ev@Base 5.77.0
+ _ZN19KeySequenceRecorderD2Ev@Base 5.77.0
  _ZN24KModifierKeyInfoProvider10keyLatchedEN2Qt3KeyEb@Base 5.61.0
  _ZN24KModifierKeyInfoProvider10keyPressedEN2Qt3KeyEb@Base 5.61.0
  _ZN24KModifierKeyInfoProvider10keyRemovedEN2Qt3KeyE@Base 5.61.0
@@ -126,6 +144,12 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZNK16KModifierKeyInfo15isButtonPressedEN2Qt11MouseButtonE@Base 4.96.0
  _ZNK16KModifierKeyInfo8knowsKeyEN2Qt3KeyE@Base 4.96.0
  _ZNK16KModifierKeyInfo9knownKeysEv@Base 4.96.0
+ _ZNK19KeySequenceRecorder10metaObjectEv@Base 5.77.0
+ _ZNK19KeySequenceRecorder11isRecordingEv@Base 5.77.0
+ _ZNK19KeySequenceRecorder18currentKeySequenceEv@Base 5.77.0
+ _ZNK19KeySequenceRecorder19modifierlessAllowedEv@Base 5.77.0
+ _ZNK19KeySequenceRecorder24multiKeyShortcutsAllowedEv@Base 5.77.0
+ _ZNK19KeySequenceRecorder6windowEv@Base 5.77.0
  _ZNK24KModifierKeyInfoProvider10metaObjectEv@Base 5.61.0
  _ZNK24KModifierKeyInfoProvider11isKeyLockedEN2Qt3KeyE@Base 5.61.0
  _ZNK24KModifierKeyInfoProvider12isKeyLatchedEN2Qt3KeyE@Base 5.61.0
@@ -146,14 +170,19 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZTI11QSharedData@Base 5.61.0
  _ZTI14KDateValidator@Base 4.96.0
  _ZTI16KModifierKeyInfo@Base 4.96.0
+ _ZTI19KeySequenceRecorder@Base 5.77.0
  _ZTI24KModifierKeyInfoProvider@Base 5.61.0
  _ZTI30KLocalImageCacheImplementation@Base 4.96.0
  _ZTS11QSharedData@Base 5.61.0
  _ZTS14KDateValidator@Base 4.96.0
  _ZTS16KModifierKeyInfo@Base 4.96.0
+ _ZTS19KeySequenceRecorder@Base 5.77.0
  _ZTS24KModifierKeyInfoProvider@Base 5.61.0
  _ZTS30KLocalImageCacheImplementation@Base 4.96.0
  _ZTV14KDateValidator@Base 4.96.0
  _ZTV16KModifierKeyInfo@Base 4.96.0
+ _ZTV19KeySequenceRecorder@Base 5.77.0
  _ZTV24KModifierKeyInfoProvider@Base 5.61.0
  _ZTV30KLocalImageCacheImplementation@Base 4.96.0
+ zwp_keyboard_shortcuts_inhibit_manager_v1_interface@Base 5.77.0
+ zwp_keyboard_shortcuts_inhibitor_v1_interface@Base 5.77.0
