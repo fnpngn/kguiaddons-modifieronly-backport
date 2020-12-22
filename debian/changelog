@@ -1,3 +1,9 @@
+kguiaddons (5.77.0-3) unstable; urgency=medium
+
+  * Release to unstable.
+
+ -- Norbert Preining <norbert@preining.info>  Tue, 22 Dec 2020 10:33:34 +0900
+
 kguiaddons (5.77.0-2) experimental; urgency=medium
 
   [ Norbert Preining ]
