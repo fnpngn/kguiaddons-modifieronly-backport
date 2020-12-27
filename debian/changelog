@@ -1,3 +1,15 @@
+kguiaddons (5.77.0-4) unstable; urgency=medium
+
+  * Team upload.
+  * Allow kguiaddons to build again on non-Linux architectures:
+    (Closes: #978164)
+    - limit the libqt5waylandclient5-dev, libwayland-dev, and
+      qtwayland5-dev-tools build dependencies as linux-any
+    - pass -DWITH_WAYLAND=OFF to cmake on non-Linux architectures
+    - limit two symbols as linux-any
+
+ -- Pino Toscano <pino@debian.org>  Sun, 27 Dec 2020 10:50:45 +0100
+
 kguiaddons (5.77.0-3) unstable; urgency=medium
 
   * Release to unstable.

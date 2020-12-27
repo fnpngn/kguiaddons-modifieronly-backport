@@ -184,5 +184,5 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZTV19KeySequenceRecorder@Base 5.77.0
  _ZTV24KModifierKeyInfoProvider@Base 5.61.0
  _ZTV30KLocalImageCacheImplementation@Base 4.96.0
- zwp_keyboard_shortcuts_inhibit_manager_v1_interface@Base 5.77.0
- zwp_keyboard_shortcuts_inhibitor_v1_interface@Base 5.77.0
+ (arch=linux-any)zwp_keyboard_shortcuts_inhibit_manager_v1_interface@Base 5.77.0
+ (arch=linux-any)zwp_keyboard_shortcuts_inhibitor_v1_interface@Base 5.77.0
