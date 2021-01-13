@@ -1,3 +1,10 @@
+kguiaddons (5.78.0-1) experimental; urgency=medium
+
+  [ Norbert Preining ]
+  * New upstream release (5.78.0).
+
+ -- Norbert Preining <norbert@preining.info>  Wed, 13 Jan 2021 10:32:42 +0900
+
 kguiaddons (5.77.0-4) unstable; urgency=medium
 
   * Team upload.

@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(KF5_VERSION "5.77.0") # handled by release scripts
+set(KF5_VERSION "5.78.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF5_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.77.0  NO_MODULE)
+find_package(ECM 5.78.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -13,7 +13,7 @@ feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKA
 option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)" OFF)
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 
-if (UNIX AND NOT ANDROID)
+if (UNIX AND NOT ANDROID AND NOT APPLE)
     option(WITH_WAYLAND "Build with support for KeySequenceEditor inhibiting shortcuts on Wayland" ON)
     add_feature_info(WAYLAND ${WITH_WAYLAND} "KeySequenceEditor inhibiting shortcuts on Wayland")
 else()
@@ -26,7 +26,7 @@ include(KDEInstallDirs)
 include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
-set(REQUIRED_QT_VERSION 5.13.0)
+set(REQUIRED_QT_VERSION 5.14.0)
 if (WITH_WAYLAND)
     set(_qtgui_find_components COMPONENTS Private)
 endif()
@@ -56,7 +56,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KGUIADDONS
                         SOVERSION 5)
 
 
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
 add_definitions(-DQT_NO_FOREACH)
 add_subdirectory(src)
 if (BUILD_TESTING)
