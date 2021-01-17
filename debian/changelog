@@ -1,3 +1,9 @@
+kguiaddons (5.78.0-3) unstable; urgency=medium
+
+  * Release to unstable.
+
+ -- Norbert Preining <norbert@preining.info>  Sun, 17 Jan 2021 12:02:21 +0900
+
 kguiaddons (5.78.0-2) experimental; urgency=medium
 
   * Fix incorrect B-D.
