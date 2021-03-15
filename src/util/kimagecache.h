@@ -20,8 +20,9 @@
 
 #include <klocalimagecacheimpl.h>
 #include <kshareddatacache.h>
-#include <QPixmap>
+
 #include <QImage>
+#include <QPixmap>
 
 #define KImageCache KSharedPixmapCacheMixin<KSharedDataCache>
 
@@ -69,11 +70,11 @@ public:
      *  added to the image cache, in bytes. Use 0 if you just want a default
      *  item size.
      */
-    KSharedPixmapCacheMixin(const QString &cacheName,
-                            unsigned defaultCacheSize,
-                            unsigned expectedItemSize = 0)
-        : T(cacheName, defaultCacheSize, expectedItemSize),
-          KLocalImageCacheImplementation(defaultCacheSize) {}
+    KSharedPixmapCacheMixin(const QString &cacheName, unsigned defaultCacheSize, unsigned expectedItemSize = 0)
+        : T(cacheName, defaultCacheSize, expectedItemSize)
+        , KLocalImageCacheImplementation(defaultCacheSize)
+    {
+    }
 
     /**
      * Inserts the pixmap given by @p pixmap to the cache, accessible with
