@@ -7,10 +7,11 @@
 #ifndef KMODIFIERKEYINFOPROVIDER_P_H
 #define KMODIFIERKEYINFOPROVIDER_P_H
 
+#include "kguiaddons_export.h"
+
 #include <QHash>
 #include <QObject>
 #include <QSharedData>
-#include "kguiaddons_export.h"
 
 /**
  * Background class that implements the behaviour of KModifierKeyInfo for
@@ -26,7 +27,7 @@ public:
         Nothing = 0x0,
         Pressed = 0x1,
         Latched = 0x2,
-        Locked = 0x4
+        Locked = 0x4,
     };
     Q_ENUM(ModifierState);
     Q_DECLARE_FLAGS(ModifierStates, ModifierState)
