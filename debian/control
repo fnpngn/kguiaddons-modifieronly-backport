@@ -2,25 +2,24 @@ Source: kguiaddons
 Section: libs
 Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
-Uploaders: Maximiliano Curia <maxy@debian.org>,
-           Norbert Preining <norbert@preining.info>,
+Uploaders: Norbert Preining <norbert@preining.info>,
 Build-Depends: cmake (>= 3.5~),
                debhelper-compat (= 13),
                doxygen,
-               extra-cmake-modules (>= 5.81.0~),
+               extra-cmake-modules (>= 5.82.0~),
                libqt5sql5-sqlite:native,
-               libqt5waylandclient5-dev (>= 5.13.0~) [linux-any],
-               libqt5x11extras5-dev (>= 5.13.0~),
+               libqt5waylandclient5-dev (>= 5.15.0~) [linux-any],
+               libqt5x11extras5-dev (>= 5.15.0~),
                libwayland-dev (>= 1.9~) [linux-any],
                libx11-dev,
                libxcb1-dev,
                pkg-config,
                pkg-kde-tools (>= 0.15.15ubuntu1~),
-               qtbase5-dev (>= 5.13.0~),
+               qtbase5-dev (>= 5.15.0~),
                qtbase5-private-dev,
                qttools5-dev,
                qttools5-dev-tools (>= 5.4),
-               qtwayland5-dev-tools (>= 5.13.0~) [linux-any],
+               qtwayland5-dev-tools (>= 5.15.0~) [linux-any],
 Standards-Version: 4.5.1
 Homepage: https://invent.kde.org/frameworks/kguiaddons
 Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/kguiaddons
@@ -30,9 +29,9 @@ Rules-Requires-Root: no
 Package: libkf5guiaddons-dev
 Section: libdevel
 Architecture: any
-Depends: libkf5coreaddons-dev (>= 5.77.0~),
+Depends: libkf5coreaddons-dev (>= 5.82.0~),
          libkf5guiaddons5 (= ${binary:Version}),
-         qtbase5-dev (>= 5.13.0~),
+         qtbase5-dev (>= 5.15.0~),
          ${misc:Depends},
 Recommends: libkf5guiaddons-doc (= ${source:Version})
 Description: development headers for the kguiaddons framework
