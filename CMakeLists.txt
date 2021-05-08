@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(KF_VERSION "5.81.0") # handled by release scripts
+set(KF_VERSION "5.82.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.81.0  NO_MODULE)
+find_package(ECM 5.82.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -27,7 +27,7 @@ include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(KDEGitCommitHooks)
 
-set(REQUIRED_QT_VERSION 5.14.0)
+set(REQUIRED_QT_VERSION 5.15.0)
 if (WITH_WAYLAND)
     set(_qtgui_find_components COMPONENTS Private)
 endif()
@@ -57,7 +57,7 @@ ecm_setup_version(PROJECT VARIABLE_PREFIX KGUIADDONS
                         SOVERSION 5)
 
 
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050e00)
+add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050f00)
 add_definitions(-DQT_NO_FOREACH)
 add_subdirectory(src)
 if (BUILD_TESTING)
