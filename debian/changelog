@@ -1,3 +1,12 @@
+kguiaddons (5.83.0-1) experimental; urgency=medium
+
+  [ Norbert Preining ]
+  * New upstream release (5.83.0).
+  * Update depends from cmake.
+  * Update symbols.
+
+ -- Norbert Preining <norbert@preining.info>  Sun, 13 Jun 2021 13:25:32 +0900
+
 kguiaddons (5.82.0-1) experimental; urgency=medium
 
   [ Norbert Preining ]
