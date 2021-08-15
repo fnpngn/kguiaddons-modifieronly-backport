@@ -1,3 +1,11 @@
+kguiaddons (5.85.0-1) experimental; urgency=medium
+
+  [ Norbert Preining ]
+  * New upstream release (5.85.0).
+  * Update build-deps and deps with the info from cmake
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 16 Aug 2021 00:51:26 +0900
+
 kguiaddons (5.83.0-1) experimental; urgency=medium
 
   [ Norbert Preining ]

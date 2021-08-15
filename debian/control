@@ -2,11 +2,11 @@ Source: kguiaddons
 Section: libs
 Priority: optional
 Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
-Uploaders: Norbert Preining <norbert@preining.info>,
+Uploaders: Norbert Preining <norbert@preining.info>
 Build-Depends: cmake (>= 3.16~),
                debhelper-compat (= 13),
                doxygen,
-               extra-cmake-modules (>= 5.83.0~),
+               extra-cmake-modules (>= 5.85.0~),
                libqt5sql5-sqlite:native,
                libqt5waylandclient5-dev (>= 5.15.0~) [linux-any],
                libqt5x11extras5-dev (>= 5.15.0~),
@@ -29,7 +29,7 @@ Rules-Requires-Root: no
 Package: libkf5guiaddons-dev
 Section: libdevel
 Architecture: any
-Depends: libkf5coreaddons-dev (>= 5.83.0~),
+Depends: libkf5coreaddons-dev (>= 5.84.0~),
          libkf5guiaddons5 (= ${binary:Version}),
          qtbase5-dev (>= 5.15.0~),
          ${misc:Depends},
