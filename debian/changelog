@@ -1,3 +1,9 @@
+kguiaddons (5.85.0-2) unstable; urgency=medium
+
+  * Release to unstable.
+
+ -- Norbert Preining <norbert@preining.info>  Sat, 28 Aug 2021 23:42:46 +0900
+
 kguiaddons (5.85.0-1) experimental; urgency=medium
 
   [ Norbert Preining ]
@@ -5,6 +11,12 @@ kguiaddons (5.85.0-1) experimental; urgency=medium
   * Update build-deps and deps with the info from cmake
 
  -- Norbert Preining <norbert@preining.info>  Mon, 16 Aug 2021 00:51:26 +0900
+
+kguiaddons (5.83.0-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Norbert Preining <norbert@preining.info>  Mon, 16 Aug 2021 11:53:04 +0900
 
 kguiaddons (5.83.0-1) experimental; urgency=medium
 
