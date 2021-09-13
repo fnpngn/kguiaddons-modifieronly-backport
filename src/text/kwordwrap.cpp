@@ -159,16 +159,17 @@ KWordWrap &KWordWrap::operator=(const KWordWrap &other)
 
 QString KWordWrap::wrappedString() const
 {
+    const QStringView strView(d->m_text);
     // We use the calculated break positions to insert '\n' into the string
     QString ws;
     int start = 0;
     for (int i = 0; i < d->m_breakPositions.count(); ++i) {
         int end = d->m_breakPositions.at(i);
-        ws += d->m_text.midRef(start, end - start + 1);
+        ws += strView.mid(start, end - start + 1);
         ws += QLatin1Char('\n');
         start = end + 1;
     }
-    ws += d->m_text.midRef(start);
+    ws += strView.mid(start);
     return ws;
 }
 
@@ -288,12 +289,13 @@ void KWordWrap::drawText(QPainter *painter, int textX, int textY, int flags) con
     if ((d->m_constrainingRect.height() < 0) || ((y + height) <= d->m_constrainingRect.height())) {
         if (i == d->m_breakPositions.count()) {
             painter->drawText(x, textY + y + ascent, d->m_text.mid(start));
-        } else if (flags & FadeOut)
+        } else if (flags & FadeOut) {
             drawFadeoutText(painter, textX, textY + y + ascent, d->m_constrainingRect.width(), d->m_text.mid(start));
-        else if (flags & Truncate)
+        } else if (flags & Truncate) {
             drawTruncateText(painter, textX, textY + y + ascent, d->m_constrainingRect.width(), d->m_text.mid(start));
-        else
+        } else {
             painter->drawText(x, textY + y + ascent, d->m_text.mid(start));
+        }
     }
 }
 
