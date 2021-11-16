@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(KF_VERSION "5.86.0") # handled by release scripts
+set(KF_VERSION "5.88.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.86.0  NO_MODULE)
+find_package(ECM 5.87.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -16,8 +16,12 @@ add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt 
 if (UNIX AND NOT ANDROID AND NOT APPLE)
     option(WITH_WAYLAND "Build with support for KeySequenceEditor inhibiting shortcuts on Wayland" ON)
     add_feature_info(WAYLAND ${WITH_WAYLAND} "KeySequenceEditor inhibiting shortcuts on Wayland")
+
+    option(WITH_X11 "Build with support for KeySequenceEditor inhibiting shortcuts on X11" ON)
+    add_feature_info(X11 ${WITH_X11} "KeySequenceEditor inhibiting shortcuts on X11")
 else()
     set(WITH_WAYLAND OFF)
+    set(WITH_X11 OFF)
 endif()
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
@@ -34,9 +38,10 @@ endif()
 # QtGui must be found becore Qt5WaylandClient
 find_package(Qt5Gui ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE ${_qtgui_find_components})
 
-if (NOT APPLE AND NOT WIN32)
-    find_package(X11 MODULE)
-    find_package(XCB MODULE COMPONENTS XCB)
+if (WITH_X11)
+    find_package(X11 REQUIRED MODULE)
+    find_package(XCB REQUIRED MODULE COMPONENTS XCB)
+    find_package(Qt5X11Extras ${REQUIRED_QT_VERSION} NO_MODULE)
 endif()
 
 if (WITH_WAYLAND)
