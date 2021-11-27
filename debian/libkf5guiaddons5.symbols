@@ -1,11 +1,11 @@
-# SymbolsHelper-Confirmed: 5.74.0 amd64
+# SymbolsHelper-Confirmed: 5.84.0 amd64 arm64 armhf ppc64el s390x
 libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
 * Build-Depends-Package: libkf5guiaddons-dev
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringRK6QSizeFdd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringdddd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
  _ZN10KIconUtils10addOverlayERK5QIconS2_N2Qt6CornerE@Base 4.96.0
  _ZN10KIconUtils11addOverlaysERK5QIconRK5QHashIN2Qt6CornerES0_E@Base 4.96.0
- _ZN10KIconUtils11addOverlaysERK7QStringRK11QStringList@Base 5.83.0
+ _ZN10KIconUtils11addOverlaysERK7QStringRK11QStringList@Base 5.82.0
  _ZN11KColorUtils13contrastRatioERK6QColorS2_@Base 4.96.0
  _ZN11KColorUtils13overlayColorsERK6QColorS2_N8QPainter15CompositionModeE@Base 4.96.0
  _ZN11KColorUtils3hueERK6QColor@Base 5.69.0
@@ -18,6 +18,11 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZN11KColorUtils6getHcyERK6QColorPdS3_S3_S3_@Base 4.96.0
  _ZN11KColorUtils7lightenERK6QColordd@Base 4.96.0
  _ZN11KColorUtils8hcyColorEdddd@Base 5.69.0
+ _ZN11KUrlHandler11qt_metacallEN11QMetaObject4CallEiPPv@Base 5.84.0
+ _ZN11KUrlHandler11qt_metacastEPKc@Base 5.84.0
+ _ZN11KUrlHandler16staticMetaObjectE@Base 5.84.0
+ _ZN11KUrlHandlerC1EP7QObject@Base 5.84.0
+ _ZN11KUrlHandlerC2EP7QObject@Base 5.84.0
  _ZN12KCursorSaver13restoreCursorEv@Base 5.74.0
  _ZN12KCursorSaverC1EN2Qt11CursorShapeE@Base 5.74.0
  _ZN12KCursorSaverC1EOS_@Base 5.74.0
@@ -126,6 +131,9 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZN9KWordWrapD1Ev@Base 4.96.0
  _ZN9KWordWrapD2Ev@Base 4.96.0
  _ZN9KWordWrapaSERKS_@Base 4.98.0
+ _ZNK11KUrlHandler10metaObjectEv@Base 5.84.0
+ _ZNK11KUrlHandler13concatDocsUrlERK4QUrl@Base 5.84.0
+ _ZNK11KUrlHandler8openHelpERK4QUrl@Base 5.84.0
  _ZNK14KDateValidator10metaObjectEv@Base 5.52.0
  _ZNK14KDateValidator4dateERK7QStringR5QDate@Base 4.96.0
  _ZNK14KDateValidator5fixupER7QString@Base 4.96.0
@@ -168,18 +176,21 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZNK9KWordWrap13wrappedStringEv@Base 4.96.0
  _ZNK9KWordWrap15truncatedStringEb@Base 4.96.0
  _ZNK9KWordWrap8drawTextEP8QPainteriii@Base 4.96.0
+ _ZTI11KUrlHandler@Base 5.84.0
  _ZTI11QSharedData@Base 5.61.0
  _ZTI14KDateValidator@Base 4.96.0
  _ZTI16KModifierKeyInfo@Base 4.96.0
  _ZTI19KeySequenceRecorder@Base 5.77.0
  _ZTI24KModifierKeyInfoProvider@Base 5.61.0
  _ZTI30KLocalImageCacheImplementation@Base 4.96.0
+ _ZTS11KUrlHandler@Base 5.84.0
  _ZTS11QSharedData@Base 5.61.0
  _ZTS14KDateValidator@Base 4.96.0
  _ZTS16KModifierKeyInfo@Base 4.96.0
  _ZTS19KeySequenceRecorder@Base 5.77.0
  _ZTS24KModifierKeyInfoProvider@Base 5.61.0
  _ZTS30KLocalImageCacheImplementation@Base 4.96.0
+ _ZTV11KUrlHandler@Base 5.84.0
  _ZTV14KDateValidator@Base 4.96.0
  _ZTV16KModifierKeyInfo@Base 4.96.0
  _ZTV19KeySequenceRecorder@Base 5.77.0
