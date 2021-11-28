@@ -22,8 +22,8 @@ Build-Depends: cmake (>= 3.16~),
                qtwayland5-dev-tools (>= 5.15.0~) [linux-any],
 Standards-Version: 4.6.0
 Homepage: https://invent.kde.org/frameworks/kguiaddons
-Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/kguiaddons
-Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/kguiaddons.git
+Vcs-Browser: https://code.launchpad.net/~kubuntu-packagers/kubuntu-packaging/+git/kguiaddons
+Vcs-Git: https://git.launchpad.net/~kubuntu-packagers/kubuntu-packaging/+git/kguiaddons
 Rules-Requires-Root: no
 
 Package: libkf5guiaddons-dev
