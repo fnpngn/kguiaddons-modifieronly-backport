@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.84.0 amd64 arm64 armhf ppc64el s390x
+# SymbolsHelper-Confirmed: 5.89.0 amd64 arm64 armhf ppc64el s390x
 libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
 * Build-Depends-Package: libkf5guiaddons-dev
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringRK6QSizeFdd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
@@ -74,6 +74,14 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZN16KModifierKeyInfoD0Ev@Base 4.96.0
  _ZN16KModifierKeyInfoD1Ev@Base 4.96.0
  _ZN16KModifierKeyInfoD2Ev@Base 4.96.0
+ _ZN16KSystemClipboard11qt_metacallEN11QMetaObject4CallEiPPv@Base 5.89.0
+ _ZN16KSystemClipboard11qt_metacastEPKc@Base 5.89.0
+ _ZN16KSystemClipboard16staticMetaObjectE@Base 5.89.0
+ _ZN16KSystemClipboard4textEN10QClipboard4ModeE@Base 5.89.0
+ _ZN16KSystemClipboard7changedEN10QClipboard4ModeE@Base 5.89.0
+ _ZN16KSystemClipboard8instanceEv@Base 5.89.0
+ _ZN16KSystemClipboardC1EP7QObject@Base 5.89.0
+ _ZN16KSystemClipboardC2EP7QObject@Base 5.89.0
  _ZN19KeySequenceRecorder11qt_metacallEN11QMetaObject4CallEiPPv@Base 5.77.0
  _ZN19KeySequenceRecorder11qt_metacastEPKc@Base 5.77.0
  _ZN19KeySequenceRecorder13windowChangedEv@Base 5.77.0
@@ -153,6 +161,7 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZNK16KModifierKeyInfo15isButtonPressedEN2Qt11MouseButtonE@Base 4.96.0
  _ZNK16KModifierKeyInfo8knowsKeyEN2Qt3KeyE@Base 4.96.0
  _ZNK16KModifierKeyInfo9knownKeysEv@Base 4.96.0
+ _ZNK16KSystemClipboard10metaObjectEv@Base 5.89.0
  _ZNK19KeySequenceRecorder10metaObjectEv@Base 5.77.0
  _ZNK19KeySequenceRecorder11isRecordingEv@Base 5.77.0
  _ZNK19KeySequenceRecorder18currentKeySequenceEv@Base 5.77.0
@@ -180,6 +189,7 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZTI11QSharedData@Base 5.61.0
  _ZTI14KDateValidator@Base 4.96.0
  _ZTI16KModifierKeyInfo@Base 4.96.0
+ _ZTI16KSystemClipboard@Base 5.89.0
  _ZTI19KeySequenceRecorder@Base 5.77.0
  _ZTI24KModifierKeyInfoProvider@Base 5.61.0
  _ZTI30KLocalImageCacheImplementation@Base 4.96.0
@@ -187,14 +197,20 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
  _ZTS11QSharedData@Base 5.61.0
  _ZTS14KDateValidator@Base 4.96.0
  _ZTS16KModifierKeyInfo@Base 4.96.0
+ _ZTS16KSystemClipboard@Base 5.89.0
  _ZTS19KeySequenceRecorder@Base 5.77.0
  _ZTS24KModifierKeyInfoProvider@Base 5.61.0
  _ZTS30KLocalImageCacheImplementation@Base 4.96.0
  _ZTV11KUrlHandler@Base 5.84.0
  _ZTV14KDateValidator@Base 4.96.0
  _ZTV16KModifierKeyInfo@Base 4.96.0
+ _ZTV16KSystemClipboard@Base 5.89.0
  _ZTV19KeySequenceRecorder@Base 5.77.0
  _ZTV24KModifierKeyInfoProvider@Base 5.61.0
  _ZTV30KLocalImageCacheImplementation@Base 4.96.0
+ zwlr_data_control_device_v1_interface@Base 5.89.0
+ zwlr_data_control_manager_v1_interface@Base 5.89.0
+ zwlr_data_control_offer_v1_interface@Base 5.89.0
+ zwlr_data_control_source_v1_interface@Base 5.89.0
  (arch=linux-any)zwp_keyboard_shortcuts_inhibit_manager_v1_interface@Base 5.77.0
  (arch=linux-any)zwp_keyboard_shortcuts_inhibitor_v1_interface@Base 5.77.0
