@@ -1,3 +1,10 @@
+kguiaddons (5.90.0-0ubuntu1) jammy; urgency=medium
+
+  * New upstream release (5.90.0)
+  * Update symbols.
+
+ -- Rik Mills <rikmills@kde.org>  Thu, 06 Jan 2022 16:47:02 +0000
+
 kguiaddons (5.89.0-0ubuntu1) jammy; urgency=medium
 
   * New upstream release (5.89.0)
