@@ -153,7 +153,11 @@ protected:
         m_receivedFormats << mime_type;
     }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QVariant retrieveData(const QString &mimeType, QMetaType type) const override;
+#else
     QVariant retrieveData(const QString &mimeType, QVariant::Type type) const override;
+#endif
 
 private:
     /** reads data from a file descriptor with a timeout of 1 second
@@ -163,7 +167,11 @@ private:
     QStringList m_receivedFormats;
 };
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+QVariant DataControlOffer::retrieveData(const QString &mimeType, QMetaType type) const
+#else
 QVariant DataControlOffer::retrieveData(const QString &mimeType, QVariant::Type type) const
+#endif
 {
     Q_UNUSED(type);
 
@@ -269,7 +277,7 @@ class DataControlSource : public QObject, public QtWayland::zwlr_data_control_so
     Q_OBJECT
 public:
     DataControlSource(struct ::zwlr_data_control_source_v1 *id, QMimeData *mimeData);
-    DataControlSource();
+    DataControlSource() = default;
     ~DataControlSource()
     {
         destroy();
@@ -479,14 +487,20 @@ WaylandClipboard::WaylandClipboard(QObject *parent)
             m_device.reset(new DataControlDevice(m_manager->get_data_device(seat)));
 
             connect(m_device.get(), &DataControlDevice::receivedSelectionChanged, this, [this]() {
-                Q_EMIT changed(QClipboard::Clipboard);
+                // When our source is still valid, so the offer is for setting it or we emit changed when it is cancelled
+                if (!m_device->selection()) {
+                    Q_EMIT changed(QClipboard::Clipboard);
+                }
             });
             connect(m_device.get(), &DataControlDevice::selectionChanged, this, [this]() {
                 Q_EMIT changed(QClipboard::Clipboard);
             });
 
             connect(m_device.get(), &DataControlDevice::receivedPrimarySelectionChanged, this, [this]() {
-                Q_EMIT changed(QClipboard::Selection);
+                // When our source is still valid, so the offer is for setting it or we emit changed when it is cancelled
+                if (!m_device->primarySelection()) {
+                    Q_EMIT changed(QClipboard::Selection);
+                }
             });
             connect(m_device.get(), &DataControlDevice::primarySelectionChanged, this, [this]() {
                 Q_EMIT changed(QClipboard::Selection);
