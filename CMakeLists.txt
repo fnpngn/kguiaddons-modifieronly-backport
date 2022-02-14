@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(KF_VERSION "5.90.0") # handled by release scripts
+set(KF_VERSION "5.91.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.90.0  NO_MODULE)
+find_package(ECM 5.91.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -108,7 +108,7 @@ install(EXPORT KF5GuiAddonsTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
 
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kguiaddons_version.h
-        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF} COMPONENT Devel)
+        DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KGuiAddons COMPONENT Devel)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

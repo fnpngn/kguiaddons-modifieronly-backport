@@ -1,5 +1,5 @@
 # SymbolsHelper-Confirmed: 5.90.0 amd64 arm64 armhf ppc64el riscv64 s390x
-libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#
+libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#, libkf5guiaddons-bin
 * Build-Depends-Package: libkf5guiaddons-dev
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringRK6QSizeFdd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringdddd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
