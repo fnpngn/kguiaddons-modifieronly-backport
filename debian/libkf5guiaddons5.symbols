@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.90.0 amd64 arm64 armhf ppc64el riscv64 s390x
+# SymbolsHelper-Confirmed: 5.94.0 amd64 arm64 armhf ppc64el s390x
 libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#, libkf5guiaddons-bin
 * Build-Depends-Package: libkf5guiaddons-dev
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringRK6QSizeFdd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
@@ -209,6 +209,7 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#, libkf5guiaddons-bin
  _ZTV19KeySequenceRecorder@Base 5.77.0
  _ZTV24KModifierKeyInfoProvider@Base 5.61.0
  _ZTV30KLocalImageCacheImplementation@Base 4.96.0
+ org_kde_kwin_keystate_interface@Base 5.94.0
  zwlr_data_control_device_v1_interface@Base 5.89.0
  zwlr_data_control_manager_v1_interface@Base 5.89.0
  zwlr_data_control_offer_v1_interface@Base 5.89.0

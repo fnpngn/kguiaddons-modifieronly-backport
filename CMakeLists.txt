@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(KF_VERSION "5.93.0") # handled by release scripts
+set(KF_VERSION "5.94.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF_VERSION})
 
 include(FeatureSummary)
@@ -43,12 +43,11 @@ if (WITH_X11)
     find_package(XCB REQUIRED MODULE COMPONENTS XCB)
 if (QT_MAJOR_VERSION STREQUAL "5")
     find_package(Qt5X11Extras ${REQUIRED_QT_VERSION} CONFIG)
-else()
-    # qtx11extras_p.h is in Qt6Gui, which is already found a couple of lines above
 endif()
 endif()
 
 if (WITH_WAYLAND)
+    find_package(PlasmaWaylandProtocols 1.7.0 REQUIRED)
     find_package(Qt${QT_MAJOR_VERSION}WaylandClient ${REQUIRED_QT_VERSION} CONFIG)
     # With Qt6 use qt_generate_wayland_protocol_client_sources instead of
     # ecm_add_qtwayland_client_protocol (in QtWaylandScanner from ECM)
