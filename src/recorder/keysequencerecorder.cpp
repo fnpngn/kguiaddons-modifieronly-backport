@@ -22,6 +22,33 @@
 
 #include <array>
 
+class KeySequenceRecorderPrivate : public QObject
+{
+    Q_OBJECT
+public:
+    // Copy of QKeySequencePrivate::MaxKeyCount from private header
+    enum { MaxKeyCount = 4 };
+
+    KeySequenceRecorderPrivate(KeySequenceRecorder *qq);
+
+    void controlModifierlessTimeout();
+    bool eventFilter(QObject *watched, QEvent *event) override;
+    void handleKeyPress(QKeyEvent *event);
+    void handleKeyRelease(QKeyEvent *event);
+    void finishRecording();
+
+    KeySequenceRecorder *q;
+    QKeySequence m_currentKeySequence;
+    QPointer<QWindow> m_window;
+    bool m_isRecording;
+    bool m_multiKeyShortcutsAllowed;
+    bool m_modifierlessAllowed;
+
+    Qt::KeyboardModifiers m_currentModifiers;
+    QTimer m_modifierlessTimer;
+    std::unique_ptr<ShortcutInhibition> m_inhibition;
+};
+
 constexpr Qt::KeyboardModifiers modifierMask = Qt::ShiftModifier | Qt::ControlModifier | Qt::AltModifier | Qt::MetaModifier | Qt::KeypadModifier;
 
 // Copied here from KKeyServer
@@ -233,39 +260,15 @@ static bool isOkWhenModifierless(int key)
 
 static QKeySequence appendToSequence(const QKeySequence &sequence, int key)
 {
-    if (sequence.count() >= 4) {
-        qCWarning(KGUIADDONS_LOG) << "Invalid sequence size: " << sequence.count();
+    if (sequence.count() >= KeySequenceRecorderPrivate::MaxKeyCount) {
+        qCWarning(KGUIADDONS_LOG) << "Cannot append to a key to a sequence which is already of length" << sequence.count();
         return sequence;
     }
 
-    std::array<int, 4> keys{sequence[0], sequence[1], sequence[2], sequence[3]};
+    std::array<int, KeySequenceRecorderPrivate::MaxKeyCount> keys{sequence[0], sequence[1], sequence[2], sequence[3]};
     keys[sequence.count()] = key;
     return QKeySequence(keys[0], keys[1], keys[2], keys[3]);
 }
-
-class KeySequenceRecorderPrivate : public QObject
-{
-    Q_OBJECT
-public:
-    KeySequenceRecorderPrivate(KeySequenceRecorder *qq);
-
-    void controlModifierlessTimeout();
-    bool eventFilter(QObject *watched, QEvent *event) override;
-    void handleKeyPress(QKeyEvent *event);
-    void handleKeyRelease(QKeyEvent *event);
-    void finishRecording();
-
-    KeySequenceRecorder *q;
-    QKeySequence m_currentKeySequence;
-    QPointer<QWindow> m_window;
-    bool m_isRecording;
-    bool m_multiKeyShortcutsAllowed;
-    bool m_modifierlessAllowed;
-
-    Qt::KeyboardModifiers m_currentModifiers;
-    QTimer m_modifierlessTimer;
-    std::unique_ptr<ShortcutInhibition> m_inhibition;
-};
 
 KeySequenceRecorderPrivate::KeySequenceRecorderPrivate(KeySequenceRecorder *qq)
     : QObject(qq)
@@ -351,8 +354,11 @@ void KeySequenceRecorderPrivate::handleKeyPress(QKeyEvent *event)
 
         m_currentKeySequence = appendToSequence(m_currentKeySequence, key);
         Q_EMIT q->currentKeySequenceChanged();
-
-        if ((!m_multiKeyShortcutsAllowed) || (m_currentKeySequence.count() == 4)) {
+        // Now we are in a critical region (race), where recording is still
+        // ongoing, but key sequence has already changed (potentially) to the
+        // longest. But we still want currentKeySequenceChanged to trigger
+        // before gotKeySequence, so there's only so much we can do about it.
+        if ((!m_multiKeyShortcutsAllowed) || (m_currentKeySequence.count() == MaxKeyCount)) {
             finishRecording();
             break;
         }
@@ -429,7 +435,13 @@ bool KeySequenceRecorder::isRecording() const
 
 QKeySequence KeySequenceRecorder::currentKeySequence() const
 {
-    return d->m_isRecording ? appendToSequence(d->m_currentKeySequence, d->m_currentModifiers) : d->m_currentKeySequence;
+    // We need a check for count() here because there's a race between the
+    // state of recording and a length of currentKeySequence.
+    if (d->m_isRecording && d->m_currentKeySequence.count() < KeySequenceRecorderPrivate::MaxKeyCount) {
+        return appendToSequence(d->m_currentKeySequence, d->m_currentModifiers);
+    } else {
+        return d->m_currentKeySequence;
+    }
 }
 
 QWindow *KeySequenceRecorder::window() const
