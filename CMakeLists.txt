@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(KF_VERSION "5.96.0") # handled by release scripts
+set(KF_VERSION "5.97.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.96.0  NO_MODULE)
+find_package(ECM 5.97.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -53,7 +53,7 @@ endif()
 
 if (WITH_WAYLAND)
     find_package(PlasmaWaylandProtocols 1.7.0 REQUIRED)
-    find_package(Qt${QT_MAJOR_VERSION}WaylandClient ${REQUIRED_QT_VERSION} CONFIG)
+    find_package(Qt${QT_MAJOR_VERSION}WaylandClient ${REQUIRED_QT_VERSION} REQUIRED CONFIG)
     # With Qt6 use qt_generate_wayland_protocol_client_sources instead of
     # ecm_add_qtwayland_client_protocol (in QtWaylandScanner from ECM)
     if (NOT TARGET Qt6::WaylandClient)
