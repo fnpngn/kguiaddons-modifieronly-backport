@@ -22,6 +22,21 @@
 
 #include <array>
 
+/// Singleton whose only purpose is to tell us about other sequence recorders getting started
+class KeySequenceRecorderGlobal : public QObject
+{
+    Q_OBJECT
+public:
+    static KeySequenceRecorderGlobal *self()
+    {
+        static KeySequenceRecorderGlobal s_self;
+        return &s_self;
+    }
+
+Q_SIGNALS:
+    void sequenceRecordingStarted();
+};
+
 class KeySequenceRecorderPrivate : public QObject
 {
     Q_OBJECT
@@ -36,9 +51,11 @@ public:
     void handleKeyPress(QKeyEvent *event);
     void handleKeyRelease(QKeyEvent *event);
     void finishRecording();
+    void receivedRecording();
 
     KeySequenceRecorder *q;
     QKeySequence m_currentKeySequence;
+    QKeySequence m_previousKeySequence;
     QPointer<QWindow> m_window;
     bool m_isRecording;
     bool m_multiKeyShortcutsAllowed;
@@ -385,7 +402,7 @@ void KeySequenceRecorderPrivate::handleKeyRelease(QKeyEvent *event)
     }
 }
 
-void KeySequenceRecorderPrivate::finishRecording()
+void KeySequenceRecorderPrivate::receivedRecording()
 {
     m_modifierlessTimer.stop();
     m_isRecording = false;
@@ -394,6 +411,11 @@ void KeySequenceRecorderPrivate::finishRecording()
         m_inhibition->disableInhibition();
     }
     Q_EMIT q->recordingChanged();
+}
+
+void KeySequenceRecorderPrivate::finishRecording()
+{
+    receivedRecording();
     Q_EMIT q->gotKeySequence(m_currentKeySequence);
 }
 
@@ -411,10 +433,22 @@ KeySequenceRecorder::KeySequenceRecorder(QWindow *window, QObject *parent)
 
 KeySequenceRecorder::~KeySequenceRecorder() noexcept
 {
+    if (d->m_inhibition && d->m_inhibition->shortcutsAreInhibited()) {
+        d->m_inhibition->disableInhibition();
+    }
 }
 
 void KeySequenceRecorder::startRecording()
 {
+    d->m_previousKeySequence = d->m_currentKeySequence;
+
+    KeySequenceRecorderGlobal::self()->sequenceRecordingStarted();
+    connect(KeySequenceRecorderGlobal::self(),
+            &KeySequenceRecorderGlobal::sequenceRecordingStarted,
+            this,
+            &KeySequenceRecorder::cancelRecording,
+            Qt::UniqueConnection);
+
     if (!d->m_window) {
         qCWarning(KGUIADDONS_LOG) << "Cannot record without a window";
         return;
@@ -426,6 +460,13 @@ void KeySequenceRecorder::startRecording()
     }
     Q_EMIT recordingChanged();
     Q_EMIT currentKeySequenceChanged();
+}
+
+void KeySequenceRecorder::cancelRecording()
+{
+    setCurrentKeySequence(d->m_previousKeySequence);
+    d->receivedRecording();
+    Q_ASSERT(!isRecording());
 }
 
 bool KeySequenceRecorder::isRecording() const
@@ -442,6 +483,15 @@ QKeySequence KeySequenceRecorder::currentKeySequence() const
     } else {
         return d->m_currentKeySequence;
     }
+}
+
+void KeySequenceRecorder::setCurrentKeySequence(const QKeySequence &sequence)
+{
+    if (d->m_currentKeySequence == sequence) {
+        return;
+    }
+    d->m_currentKeySequence = sequence;
+    Q_EMIT currentKeySequenceChanged();
 }
 
 QWindow *KeySequenceRecorder::window() const

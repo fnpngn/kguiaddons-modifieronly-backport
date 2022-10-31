@@ -27,6 +27,24 @@ target_sources(KF5GuiAddons PRIVATE
  recorder/keysequencerecorder.cpp
  systemclipboard/qtclipboard.cpp
  systemclipboard/ksystemclipboard.cpp
+
+ colors/kcolorspaces_p.h
+ colors/kcolorutils.h
+ colors/kcolorcollection.h
+ colors/kcolormimedata.h
+ text/kdatevalidator.h
+ text/kwordwrap.h
+ fonts/kfontutils.h
+ util/kiconutils.h
+ util/klocalimagecacheimpl.h
+ util/kmodifierkeyinfo.h
+ util/kmodifierkeyinfoprovider_p.h
+ util/kurlhandler_p.h
+ util/kcursorsaver.h
+ recorder/keyboardgrabber_p.h
+ recorder/keysequencerecorder.h
+ systemclipboard/qtclipboard_p.h
+ systemclipboard/ksystemclipboard.h
 )
 
 ecm_qt_declare_logging_category(KF5GuiAddons
@@ -67,13 +85,16 @@ if(WITH_WAYLAND)
         recorder/waylandinhibition.cpp
         systemclipboard/waylandclipboard.cpp
         util/kmodifierkeyinfoprovider_wayland.cpp
+        recorder/waylandinhibition_p.h
+        systemclipboard/waylandclipboard_p.h
+        util/kmodifierkeyinfoprovider_wayland.h
     )
     target_compile_definitions(KF5GuiAddons PRIVATE WITH_WAYLAND)
     target_link_libraries(KF5GuiAddons PRIVATE Qt${QT_MAJOR_VERSION}::GuiPrivate Qt${QT_MAJOR_VERSION}::WaylandClient Wayland::Client)
 endif()
 
 if(WITH_X11)
-    target_sources(KF5GuiAddons PRIVATE util/kmodifierkeyinfoprovider_xcb.cpp)
+    target_sources(KF5GuiAddons PRIVATE util/kmodifierkeyinfoprovider_xcb.cpp util/kmodifierkeyinfoprovider_xcb.h)
     if (TARGET Qt5::X11Extras)
         target_link_libraries(KF5GuiAddons PRIVATE Qt5::X11Extras)
     endif()
@@ -148,7 +169,7 @@ ecm_generate_headers(KGuiAddons_HEADERS
     REQUIRED_HEADERS KGuiAddons_HEADERS
 )
 
-install(TARGETS KF5GuiAddons EXPORT KF5GuiAddonsTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF5GuiAddons EXPORT KF5GuiAddonsTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/kguiaddons_export.h
   util/kmodifierkeyinfoprovider_p.h
