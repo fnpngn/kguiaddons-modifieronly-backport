@@ -1,3 +1,10 @@
+kguiaddons (5.99.0-0ubuntu1) lunar; urgency=medium
+
+  * New upstream release (5.99.0)
+  * Update symbols.
+
+ -- Rik Mills <rikmills@kde.org>  Mon, 31 Oct 2022 10:59:06 +0000
+
 kguiaddons (5.98.0-0ubuntu1) kinetic; urgency=medium
 
   * New upstream release (5.98.0)

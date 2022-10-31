@@ -54,7 +54,7 @@ class KGUIADDONS_EXPORT KeySequenceRecorder : public QObject
      *
      * After recording it contains the last recorded QKeySequence
      */
-    Q_PROPERTY(QKeySequence currentKeySequence READ currentKeySequence NOTIFY currentKeySequenceChanged)
+    Q_PROPERTY(QKeySequence currentKeySequence READ currentKeySequence WRITE setCurrentKeySequence NOTIFY currentKeySequenceChanged)
     /**
      * The window in which the key events are happening that should be recorded
      */
@@ -93,11 +93,12 @@ public:
      * Start recording.
      * Calling startRecording when window() is `nullptr` has no effect.
      */
-    void Q_INVOKABLE startRecording();
+    Q_INVOKABLE void startRecording();
 
     bool isRecording() const;
 
     QKeySequence currentKeySequence() const;
+    void setCurrentKeySequence(const QKeySequence &sequence);
 
     QWindow *window() const;
     void setWindow(QWindow *window);
@@ -107,6 +108,12 @@ public:
 
     void setModifierlessAllowed(bool allowed);
     bool modifierlessAllowed() const;
+
+public Q_SLOTS:
+    /**
+     * Stops the recording session
+     */
+    void cancelRecording();
 
 Q_SIGNALS:
     /**
