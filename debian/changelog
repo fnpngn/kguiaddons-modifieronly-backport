@@ -1,3 +1,11 @@
+kguiaddons (5.100.0-0ubuntu1) lunar; urgency=medium
+
+  * New upstream release (5.100.0)
+  * Update symbols.
+  * Update build-deps and deps with the info from cmake.
+
+ -- Rik Mills <rikmills@kde.org>  Tue, 15 Nov 2022 17:14:49 +0000
+
 kguiaddons (5.99.0-0ubuntu1) lunar; urgency=medium
 
   * New upstream release (5.99.0)

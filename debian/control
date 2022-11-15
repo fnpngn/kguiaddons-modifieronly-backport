@@ -7,7 +7,7 @@ Uploaders: Norbert Preining <norbert@preining.info>
 Build-Depends: cmake (>= 3.16~),
                debhelper-compat (= 13),
                doxygen,
-               extra-cmake-modules (>= 5.99.0~),
+               extra-cmake-modules (>= 5.100.0~),
                libqt5sql5-sqlite:native,
                libqt5waylandclient5-dev (>= 5.15.2~) [linux-any],
                libqt5x11extras5-dev (>= 5.15.2~),
@@ -18,7 +18,7 @@ Build-Depends: cmake (>= 3.16~),
                pkg-kde-tools (>= 0.15.15ubuntu1~),
                plasma-wayland-protocols (>= 1.7.0~),
                qtbase5-dev (>= 5.15.2~),
-               qtbase5-private-dev,
+               qtbase5-private-dev (>= 5.15.2~),
                qttools5-dev,
                qttools5-dev-tools (>= 5.4),
                qtwayland5-dev-tools (>= 5.15.0~) [linux-any],
@@ -31,7 +31,7 @@ Rules-Requires-Root: no
 Package: libkf5guiaddons-dev
 Section: libdevel
 Architecture: any
-Depends: libkf5coreaddons-dev (>= 5.99.0~),
+Depends: libkf5coreaddons-dev (>= 5.100.0~),
          libkf5guiaddons5 (= ${binary:Version}),
          qtbase5-dev (>= 5.15.2~),
          ${misc:Depends},
