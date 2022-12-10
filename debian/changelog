@@ -1,3 +1,9 @@
+kguiaddons (5.101.0-0ubuntu1) lunar; urgency=medium
+
+  * New upstream release (5.101.0)
+
+ -- Rik Mills <rikmills@kde.org>  Sat, 10 Dec 2022 13:20:21 +0000
+
 kguiaddons (5.100.0-0ubuntu1) lunar; urgency=medium
 
   * New upstream release (5.100.0)
