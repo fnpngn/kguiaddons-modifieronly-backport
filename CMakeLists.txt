@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(KF_VERSION "5.101.0") # handled by release scripts
+set(KF_VERSION "5.102.0") # handled by release scripts
 project(KGuiAddons VERSION ${KF_VERSION})
 
 include(FeatureSummary)
-find_package(ECM 5.101.0  NO_MODULE)
+find_package(ECM 5.102.0  NO_MODULE)
 set_package_properties(ECM PROPERTIES TYPE REQUIRED DESCRIPTION "Extra CMake Modules." URL "https://commits.kde.org/extra-cmake-modules")
 feature_summary(WHAT REQUIRED_PACKAGES_NOT_FOUND FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
@@ -26,10 +26,10 @@ option(BUILD_QCH "Build API documentation in QCH format (for e.g. Qt Assistant, 
 add_feature_info(QCH ${BUILD_QCH} "API documentation in QCH format (for e.g. Qt Assistant, Qt Creator & KDevelop)")
 
 if (UNIX AND NOT ANDROID AND NOT APPLE)
-    option(WITH_WAYLAND "Build with support for KeySequenceEditor inhibiting shortcuts on Wayland" ON)
+    option(WITH_WAYLAND "Build with support for KModifierKeyInfo, KSystemClipboard and KeySequenceRecorder inhibiting shortcuts on Wayland" ON)
     add_feature_info(WAYLAND ${WITH_WAYLAND} "KeySequenceEditor inhibiting shortcuts on Wayland")
 
-    option(WITH_X11 "Build with support for KeySequenceEditor inhibiting shortcuts on X11" ON)
+    option(WITH_X11 "Build with support for KModifierKeyInfo on X11" ON)
     add_feature_info(X11 ${WITH_X11} "KeySequenceEditor inhibiting shortcuts on X11")
 
     option(WITH_DBUS "Build with support for color scheme information via XDG portals" ON)
