@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.100.0 amd64 arm64 armhf ppc64el riscv64 s390x
+# SymbolsHelper-Confirmed: 5.102.0 amd64 arm64 armhf ppc64el riscv64 s390x
 libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#, libkf5guiaddons-bin
 * Build-Depends-Package: libkf5guiaddons-dev
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringRK6QSizeFdd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
@@ -101,8 +101,10 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#, libkf5guiaddons-bin
  _ZN19KeySequenceRecorder16recordingChangedEv@Base 5.77.0
  _ZN19KeySequenceRecorder16staticMetaObjectE@Base 5.77.0
  _ZN19KeySequenceRecorder21setCurrentKeySequenceERK12QKeySequence@Base 5.99.0
+ _ZN19KeySequenceRecorder22setModifierOnlyAllowedEb@Base 5.102.0
  _ZN19KeySequenceRecorder22setModifierlessAllowedEb@Base 5.77.0
  _ZN19KeySequenceRecorder25currentKeySequenceChangedEv@Base 5.77.0
+ _ZN19KeySequenceRecorder26modifierOnlyAllowedChangedEv@Base 5.102.0
  _ZN19KeySequenceRecorder26modifierlessAllowedChangedEv@Base 5.77.0
  _ZN19KeySequenceRecorder27setMultiKeyShortcutsAllowedEb@Base 5.77.0
  _ZN19KeySequenceRecorder31multiKeyShortcutsAllowedChangedEv@Base 5.77.0
@@ -179,6 +181,7 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#, libkf5guiaddons-bin
  _ZNK19KeySequenceRecorder10metaObjectEv@Base 5.77.0
  _ZNK19KeySequenceRecorder11isRecordingEv@Base 5.77.0
  _ZNK19KeySequenceRecorder18currentKeySequenceEv@Base 5.77.0
+ _ZNK19KeySequenceRecorder19modifierOnlyAllowedEv@Base 5.102.0
  _ZNK19KeySequenceRecorder19modifierlessAllowedEv@Base 5.77.0
  _ZNK19KeySequenceRecorder24multiKeyShortcutsAllowedEv@Base 5.77.0
  _ZNK19KeySequenceRecorder6windowEv@Base 5.77.0
@@ -239,6 +242,28 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#, libkf5guiaddons-bin
  _ZTV30KLocalImageCacheImplementation@Base 4.96.0
  _ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag@Base 5.99.0
  org_kde_kwin_keystate_interface@Base 5.94.0
+ wl_buffer_interface@Base 5.102.0
+ wl_callback_interface@Base 5.102.0
+ wl_compositor_interface@Base 5.102.0
+ wl_data_device_interface@Base 5.102.0
+ wl_data_device_manager_interface@Base 5.102.0
+ wl_data_offer_interface@Base 5.102.0
+ wl_data_source_interface@Base 5.102.0
+ wl_display_interface@Base 5.102.0
+ wl_keyboard_interface@Base 5.102.0
+ wl_output_interface@Base 5.102.0
+ wl_pointer_interface@Base 5.102.0
+ wl_region_interface@Base 5.102.0
+ wl_registry_interface@Base 5.102.0
+ wl_seat_interface@Base 5.102.0
+ wl_shell_interface@Base 5.102.0
+ wl_shell_surface_interface@Base 5.102.0
+ wl_shm_interface@Base 5.102.0
+ wl_shm_pool_interface@Base 5.102.0
+ wl_subcompositor_interface@Base 5.102.0
+ wl_subsurface_interface@Base 5.102.0
+ wl_surface_interface@Base 5.102.0
+ wl_touch_interface@Base 5.102.0
  zwlr_data_control_device_v1_interface@Base 5.89.0
  zwlr_data_control_manager_v1_interface@Base 5.89.0
  zwlr_data_control_offer_v1_interface@Base 5.89.0
