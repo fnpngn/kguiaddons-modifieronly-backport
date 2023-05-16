@@ -1,4 +1,4 @@
-# SymbolsHelper-Confirmed: 5.102.0 amd64 arm64 armhf ppc64el riscv64 s390x
+# SymbolsHelper-Confirmed: 5.106.0 amd64 arm64 armhf ppc64el s390x
 libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#, libkf5guiaddons-bin
 * Build-Depends-Package: libkf5guiaddons-dev
  _ZN10KFontUtils13adaptFontSizeER8QPainterRK7QStringRK6QSizeFdd6QFlagsINS_19AdaptFontSizeOptionEE@Base 4.96.0
@@ -146,9 +146,7 @@ libKF5GuiAddons.so.5 libkf5guiaddons5 #MINVER#, libkf5guiaddons-bin
  _ZN9KWordWrap10formatTextER12QFontMetricsRK5QRectiRK7QStringi@Base 4.96.0
  _ZN9KWordWrap15drawFadeoutTextEP8QPainteriiiRK7QString@Base 4.96.0
  _ZN9KWordWrap16drawTruncateTextEP8QPainteriiiRK7QString@Base 4.96.0
- _ZN9KWordWrapC1ERK5QRect@Base 4.96.0
  _ZN9KWordWrapC1ERKS_@Base 4.98.0
- _ZN9KWordWrapC2ERK5QRect@Base 4.96.0
  _ZN9KWordWrapC2ERKS_@Base 4.98.0
  _ZN9KWordWrapD1Ev@Base 4.96.0
  _ZN9KWordWrapD2Ev@Base 4.96.0
