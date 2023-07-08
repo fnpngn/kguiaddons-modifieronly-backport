@@ -1,3 +1,9 @@
+kguiaddons (5.108.0-0ubuntu1) mantic; urgency=medium
+
+  * New upstream release (5.108.0)
+
+ -- Rik Mills <rikmills@kde.org>  Sat, 08 Jul 2023 12:19:54 +0100
+
 kguiaddons (5.107.0-0ubuntu1) mantic; urgency=medium
 
   * New upstream release (5.107.0)
