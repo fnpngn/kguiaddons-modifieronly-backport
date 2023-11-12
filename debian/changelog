@@ -1,3 +1,9 @@
+kguiaddons (5.112.0-0ubuntu1) noble; urgency=medium
+
+  * New upstream release (5.112.0)
+
+ -- Rik Mills <rikmills@kde.org>  Sun, 12 Nov 2023 14:48:02 +0000
+
 kguiaddons (5.111.0-0ubuntu1) noble; urgency=medium
 
   * New upstream release (5.111.0)
