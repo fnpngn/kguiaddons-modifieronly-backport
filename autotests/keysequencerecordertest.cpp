@@ -152,13 +152,13 @@ void KeySequenceRecorderTest::testModifierOnly()
     QCOMPARE(recorder.currentKeySequence(), QKeySequence(Qt::Key_Shift));
 }
 
-void KKeySequenceRecorderTest::testModifierOnlyMultiple()
+void KeySequenceRecorderTest::testModifierOnlyMultiple()
 {
-    KKeySequenceRecorder recorder(m_window);
+    KeySequenceRecorder recorder(m_window);
     recorder.setModifierOnlyAllowed(true);
     recorder.setModifierlessAllowed(true);
-    QSignalSpy resultSpy(&recorder, &KKeySequenceRecorder::gotKeySequence);
-    QSignalSpy recordingSpy(&recorder, &KKeySequenceRecorder::recordingChanged);
+    QSignalSpy resultSpy(&recorder, &KeySequenceRecorder::gotKeySequence);
+    QSignalSpy recordingSpy(&recorder, &KeySequenceRecorder::recordingChanged);
 
     recorder.startRecording();
     QVERIFY(recorder.isRecording());
@@ -188,13 +188,13 @@ void KKeySequenceRecorderTest::testModifierOnlyMultiple()
     QCOMPARE(resultSpy.takeFirst().at(0).value<QKeySequence>(), QKeySequence(Qt::MetaModifier | Qt::ControlModifier | Qt::AltModifier | Qt::Key_Shift));
 }
 
-void KKeySequenceRecorderTest::testModifierOnlyMultipleInterrupt()
+void KeySequenceRecorderTest::testModifierOnlyMultipleInterrupt()
 {
-    KKeySequenceRecorder recorder(m_window);
+    KeySequenceRecorder recorder(m_window);
     recorder.setModifierOnlyAllowed(true);
     recorder.setModifierlessAllowed(true);
-    QSignalSpy resultSpy(&recorder, &KKeySequenceRecorder::gotKeySequence);
-    QSignalSpy recordingSpy(&recorder, &KKeySequenceRecorder::recordingChanged);
+    QSignalSpy resultSpy(&recorder, &KeySequenceRecorder::gotKeySequence);
+    QSignalSpy recordingSpy(&recorder, &KeySequenceRecorder::recordingChanged);
 
     recorder.startRecording();
     QVERIFY(recorder.isRecording());
@@ -209,7 +209,7 @@ void KKeySequenceRecorderTest::testModifierOnlyMultipleInterrupt()
     QCOMPARE(resultSpy.takeFirst().at(0).value<QKeySequence>(), QKeySequence(Qt::ControlModifier | Qt::Key_A));
 }
 
-void KKeySequenceRecorderTest::testModifierOnlyDisabled()
+void KeySequenceRecorderTest::testModifierOnlyDisabled()
 {
     KeySequenceRecorder recorder(m_window);
     recorder.setModifierOnlyAllowed(false);
