@@ -350,7 +350,7 @@ static Qt::KeyboardModifiers keyToModifier(int key)
     }
 }
 
-void KKeySequenceRecorderPrivate::handleKeyPress(QKeyEvent *event)
+void KeySequenceRecorderPrivate::handleKeyPress(QKeyEvent *event)
 {
     m_isReleasingModifierOnly = false;
     m_currentModifiers = event->modifiers() & modifierMask;
@@ -427,7 +427,7 @@ static int prettifyModifierOnly(Qt::KeyboardModifiers modifier)
     }
 }
 
-void KKeySequenceRecorderPrivate::handleKeyRelease(QKeyEvent *event)
+void KeySequenceRecorderPrivate::handleKeyRelease(QKeyEvent *event)
 {
     Qt::KeyboardModifiers modifiers = event->modifiers() & modifierMask;
 
