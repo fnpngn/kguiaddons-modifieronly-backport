@@ -414,6 +414,7 @@ void KeySequenceRecorderPrivate::handleKeyPress(QKeyEvent *event)
 // so that the ordering is always Meta + Ctrl + Alt + Shift
 static int prettifyModifierOnly(Qt::KeyboardModifiers modifier)
 {
+    #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     if (modifier & Qt::ShiftModifier) {
         return (Qt::Key_Shift | (modifier & ~Qt::ShiftModifier)).toCombined();
     } else if (modifier & Qt::AltModifier) {
@@ -425,6 +426,19 @@ static int prettifyModifierOnly(Qt::KeyboardModifiers modifier)
     } else {
         return Qt::Key(0);
     }
+    #else
+    if (modifier & Qt::ShiftModifier) {
+        return Qt::Key_Shift | (modifier & ~Qt::ShiftModifier);
+    } else if (modifier & Qt::AltModifier) {
+        return Qt::Key_Alt | (modifier & ~Qt::AltModifier);
+    } else if (modifier & Qt::ControlModifier) {
+        return Qt::Key_Control | (modifier & ~Qt::ControlModifier);
+    } else if (modifier & Qt::MetaModifier) {
+        return Qt::Key_Meta | (modifier & ~Qt::MetaModifier);
+    } else {
+        return Qt::Key(0);
+    }
+    #endif
 }
 
 void KeySequenceRecorderPrivate::handleKeyRelease(QKeyEvent *event)
